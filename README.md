@@ -21,8 +21,9 @@ This section lists any major frameworks/libraries used to bootstrap project.
 ## 🚀 Content of the project
 
 - LinkedList
-- Find middle node of the linked list
-- Detect cycle
+  - Find middle node of the linked list
+  - Detect cycle
+  - findKthFromEnd that returns the k-th node from the end of the list
 
 ## Run the demo:
 

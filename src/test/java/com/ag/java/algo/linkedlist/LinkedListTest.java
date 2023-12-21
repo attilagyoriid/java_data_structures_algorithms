@@ -3,8 +3,6 @@ package com.ag.java.algo.linkedlist;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class LinkedListTest {
 
     /**
@@ -72,5 +70,35 @@ class LinkedListTest {
         myLinkedList.append(4);
         myLinkedList.append(5);
         Assertions.assertFalse(myLinkedList.hasLoop());
+    }
+
+    /**
+     * findKthFromEnd that returns the k-th node from the end of the list.
+     */
+    @Test
+    void findKthFromEnd_happy() {
+        LinkedList myList = new LinkedList(1);
+        myList.append(2);
+        myList.append(3);
+        myList.append(4);
+        myList.append(5);
+        Assertions.assertEquals(4, myList.findKthFromEnd(2).value);
+    }
+
+    @Test
+    void findKthFromEnd_index_out() {
+        LinkedList myList = new LinkedList(1);
+        myList.append(2);
+        myList.append(3);
+        myList.append(4);
+        myList.append(5);
+        Assertions.assertNull(myList.findKthFromEnd(6));
+    }
+
+    @Test
+    void findKthFromEnd_empty() {
+        LinkedList myList = new LinkedList(1);
+        myList.makeEmpty();
+        Assertions.assertNull(myList.findKthFromEnd(6));
     }
 }
