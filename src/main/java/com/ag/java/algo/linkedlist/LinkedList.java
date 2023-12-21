@@ -1,5 +1,8 @@
 package com.ag.java.algo.linkedlist;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class LinkedList {
 
     private Node head;
@@ -22,6 +25,16 @@ public class LinkedList {
         }
     }
 
+    public List<Integer> getAsList() {
+        List list = new ArrayList<>();
+        Node temp = head;
+        while (temp != null) {
+            list.add(temp.value);
+            temp = temp.next;
+        }
+        return list;
+    }
+
     public Node getHead() {
         return head;
     }
@@ -33,7 +46,6 @@ public class LinkedList {
     public int getLength() {
         return length;
     }
-
 
 
     public void append(int value) {
@@ -65,6 +77,7 @@ public class LinkedList {
         }
         return temp;
     }
+
     public void makeEmpty() {
         head = null;
         tail = null;
@@ -192,7 +205,7 @@ public class LinkedList {
 
         Node slow = head;
         Node fast = head;
-        while (fast != null && fast.next != null ) {
+        while (fast != null && fast.next != null) {
             fast = fast.next.next;
             slow = slow.next;
             if (slow == fast) {
@@ -226,5 +239,35 @@ public class LinkedList {
         return slow;
     }
 
+    /**
+     * Partition List
+     * rearrange the linked list such that
+     * all nodes with a value less than x come before all nodes with a value greater than or equal to x
+     */
+    public void partitionList(int x) {
+        if (head == null) return;
+
+        Node left = new Node(0);
+        Node right = new Node(0);
+        Node leftTail = left;
+        Node rightTail = right;
+        Node current = head;
+
+        while (current != null) {
+            if (current.value < x) {
+                leftTail.next = current;
+                leftTail = current;
+            } else {
+                rightTail.next = current;
+                rightTail = current;
+            }
+            current = current.next;
+        }
+
+        rightTail.next = null;
+        leftTail.next = right.next;
+
+        head = left.next;
+    }
 
 }

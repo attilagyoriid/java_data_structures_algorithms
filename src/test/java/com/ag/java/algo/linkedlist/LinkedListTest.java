@@ -3,6 +3,8 @@ package com.ag.java.algo.linkedlist;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 class LinkedListTest {
 
     /**
@@ -232,5 +234,22 @@ class LinkedListTest {
         myList.reverse();
         Assertions.assertEquals(9, myList.get(0).getValue());
         Assertions.assertEquals(1, myList.get(1).getValue());
+    }
+
+    /**
+     * Partition List
+     * rearrange the linked list such that
+     * all nodes with a value less than x come before all nodes with a value greater than or equal to x
+     */
+    @Test
+    void partitionList() {
+        LinkedList ll = new LinkedList(3);
+        ll.append(5);
+        ll.append(8);
+        ll.append(10);
+        ll.append(2);
+        ll.append(1);
+        ll.partitionList(5);
+        Assertions.assertIterableEquals(List.of(3,2,1,5,8,10),ll.getAsList());
     }
 }
