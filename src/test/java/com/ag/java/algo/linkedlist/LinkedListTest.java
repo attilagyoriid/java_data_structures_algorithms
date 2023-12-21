@@ -40,4 +40,37 @@ class LinkedListTest {
         Node middleNode = myList.findMiddleNode();
         Assertions.assertEquals(1, middleNode.value);
     }
+
+    /**
+     * Detect cycle or loop
+     */
+    @Test
+    void hasLoop_true() {
+        LinkedList myLinkedList = new LinkedList(1);
+        myLinkedList.append(2);
+        myLinkedList.append(3);
+        myLinkedList.append(4);
+        myLinkedList.append(5);
+
+        // create a loop by connecting the tail to the second node
+        myLinkedList.getTail().setNext(myLinkedList.getHead().getNext());
+        Assertions.assertTrue(myLinkedList.hasLoop());
+    }
+
+    @Test
+    void hasLoop_empty_false() {
+        LinkedList myLinkedList = new LinkedList(1);
+        myLinkedList.makeEmpty();
+        Assertions.assertFalse(myLinkedList.hasLoop());
+    }
+
+    @Test
+    void hasLoop_false() {
+        LinkedList myLinkedList = new LinkedList(1);
+        myLinkedList.append(2);
+        myLinkedList.append(3);
+        myLinkedList.append(4);
+        myLinkedList.append(5);
+        Assertions.assertFalse(myLinkedList.hasLoop());
+    }
 }

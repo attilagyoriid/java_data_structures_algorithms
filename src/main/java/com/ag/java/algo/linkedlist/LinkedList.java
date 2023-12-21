@@ -22,25 +22,19 @@ public class LinkedList {
         }
     }
 
-    public void getHead() {
-        if (head == null) {
-            System.out.println("Head: null");
-        } else {
-            System.out.println("Head: " + head.value);
-        }
+    public Node getHead() {
+        return head;
     }
 
-    public void getTail() {
-        if (head == null) {
-            System.out.println("Tail: null");
-        } else {
-            System.out.println("Tail: " + tail.value);
-        }
+    public Node getTail() {
+        return tail;
     }
 
-    public void getLength() {
-        System.out.println("Length: " + length);
+    public int getLength() {
+        return length;
     }
+
+
 
     public void append(int value) {
         Node newNode = new Node(value);
@@ -185,6 +179,29 @@ public class LinkedList {
             slow = slow.next;
         }
         return slow;
+    }
+
+    /**
+     * Detect cycle or loop
+     */
+    public boolean hasLoop() {
+
+        if (null == head) {
+            return false;
+        }
+
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null ) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if (slow == fast) {
+                return true;
+            }
+        }
+
+
+        return false;
     }
 
 

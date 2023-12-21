@@ -22,6 +22,7 @@ This section lists any major frameworks/libraries used to bootstrap project.
 
 - LinkedList
 - Find middle node of the linked list
+- Detect cycle
 
 ## Run the demo:
 
