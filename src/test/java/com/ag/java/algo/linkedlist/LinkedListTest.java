@@ -101,4 +101,136 @@ class LinkedListTest {
         myList.makeEmpty();
         Assertions.assertNull(myList.findKthFromEnd(6));
     }
+
+    @Test
+    void printList() {
+        LinkedList myList = new LinkedList(1);
+        myList.append(2);
+        myList.append(3);
+        myList.append(4);
+        myList.append(5);
+        myList.printList();
+    }
+
+    @Test
+    void getHead() {
+        LinkedList myList = new LinkedList(1);
+        myList.append(2);
+        myList.append(3);
+        myList.append(4);
+        myList.append(5);
+        Assertions.assertEquals(1, myList.getHead().getValue());
+    }
+
+    @Test
+    void getTail() {
+        LinkedList myList = new LinkedList(1);
+        myList.append(2);
+        myList.append(3);
+        myList.append(4);
+        myList.append(5);
+        Assertions.assertEquals(5, myList.getTail().getValue());
+    }
+
+    @Test
+    void getLength() {
+        LinkedList myList = new LinkedList(1);
+        myList.append(2);
+        myList.append(3);
+        myList.append(4);
+        myList.append(5);
+        Assertions.assertEquals(5, myList.getLength());
+    }
+
+    @Test
+    void append() {
+        LinkedList myList = new LinkedList(1);
+        myList.append(2);
+        myList.append(3);
+        myList.append(4);
+        Assertions.assertEquals(4, myList.getTail().getValue());
+        myList.append(5);
+        Assertions.assertEquals(5, myList.getTail().getValue());
+    }
+
+    @Test
+    void removeLast() {
+        LinkedList myList = new LinkedList(1);
+        myList.append(2);
+        myList.append(3);
+        myList.append(4);
+        Assertions.assertEquals(4, myList.getTail().getValue());
+        Assertions.assertEquals(4, myList.removeLast().getValue());
+        Assertions.assertEquals(3, myList.getTail().getValue());
+
+    }
+
+    @Test
+    void makeEmpty() {
+        LinkedList myList = new LinkedList(1);
+        Assertions.assertEquals(1, myList.getHead().getValue());
+        myList.makeEmpty();
+        Assertions.assertNull(myList.getHead());
+        Assertions.assertNull(myList.getTail());
+    }
+
+    @Test
+    void prepend() {
+        LinkedList myList = new LinkedList(1);
+        Assertions.assertEquals(1, myList.getHead().getValue());
+        myList.prepend(2);
+        Assertions.assertEquals(2, myList.getHead().getValue());
+    }
+
+    @Test
+    void removeFirst() {
+        LinkedList myList = new LinkedList(1);
+        myList.append(2);
+        myList.append(3);
+        Assertions.assertEquals(1, myList.getHead().getValue());
+        myList.removeFirst();
+        Assertions.assertEquals(2, myList.getHead().getValue());
+    }
+
+    @Test
+    void get() {
+        LinkedList myList = new LinkedList(1);
+        myList.append(2);
+        Assertions.assertEquals(2, myList.get(1).getValue());
+    }
+
+    @Test
+    void set() {
+        LinkedList myList = new LinkedList(1);
+        myList.append(2);
+        Assertions.assertTrue( myList.set(1,8));
+        Assertions.assertEquals(8, myList.get(1).getValue());
+    }
+
+    @Test
+    void insert() {
+        LinkedList myList = new LinkedList(1);
+        myList.append(9);
+        Assertions.assertTrue( myList.insert(1,8));
+        Assertions.assertEquals(8, myList.get(1).getValue());
+        Assertions.assertEquals(9, myList.get(2).getValue());
+    }
+
+    @Test
+    void remove() {
+        LinkedList myList = new LinkedList(1);
+        myList.append(9);
+        Assertions.assertEquals(2, myList.getLength());
+        myList.remove(1);
+        Assertions.assertEquals(1, myList.getLength());
+    }
+
+    @Test
+    void reverse() {
+        LinkedList myList = new LinkedList(1);
+        myList.append(9);
+        myList.reverse();
+        Assertions.assertEquals(9, myList.get(0).getValue());
+        Assertions.assertEquals(1, myList.get(1).getValue());
+    }
 }

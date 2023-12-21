@@ -30,6 +30,8 @@ This section lists any major frameworks/libraries used to bootstrap project.
 1. Standard Execution:
    mvn clean test surefire-report:report
 2. Test report: target/site/surefire-report.html
+3. Run with coverage:  mvn clean verify
+   Report: target/site/jacoco/index.html
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
