@@ -27,6 +27,8 @@ This section lists any major frameworks/libraries used to bootstrap project.
   - Partition List
   - Swap every two adjacent nodes
 
+- HashMap
+    - Two of sum
 ## Run the demo:
 
 1. Standard Execution:
