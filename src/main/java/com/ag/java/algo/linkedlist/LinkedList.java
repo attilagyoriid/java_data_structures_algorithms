@@ -270,4 +270,35 @@ public class LinkedList {
         head = left.next;
     }
 
+    /**
+     * Swap every two adjacent nodes and return its head
+     */
+    public Node swapPairs() {
+
+        if (length < 2) {
+            return head;
+        }
+
+        Node dummy = new Node(0);
+        dummy.next = head;
+        Node previous = dummy;
+        Node current = head;
+
+        while (current != null && current.next != null) {
+            Node nextPair = current.next.next;
+            Node second = current.next;
+
+            second.next = current;
+            current.next = nextPair;
+            previous.next = second;
+
+            previous = current;
+            current = nextPair;
+        }
+        this.head = dummy.next;
+        return this.head;
+
+
+    }
+
 }

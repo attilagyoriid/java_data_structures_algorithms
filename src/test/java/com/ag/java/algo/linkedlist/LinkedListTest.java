@@ -252,4 +252,20 @@ class LinkedListTest {
         ll.partitionList(5);
         Assertions.assertIterableEquals(List.of(3,2,1,5,8,10),ll.getAsList());
     }
+
+    /**
+     * Swap every two adjacent nodes and return its head
+     */
+    @Test
+    void swapPairs() {
+        LinkedList ll = new LinkedList(1);
+        ll.append(2);
+        ll.append(3);
+        ll.append(4);
+        ll.append(5);
+        ll.append(6);
+        ll.swapPairs();
+        ll.printList();
+        Assertions.assertIterableEquals(List.of(2,1,4,3, 6, 5),ll.getAsList());
+    }
 }
