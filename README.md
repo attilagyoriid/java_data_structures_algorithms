@@ -26,6 +26,7 @@ This section lists any major frameworks/libraries used to bootstrap project.
   - FindKthFromEnd that returns the k-th node from the end of the list
   - Partition List
   - Swap every two adjacent nodes
+  - Remove Duplicates
 
 - HashMap
     - Two of sum

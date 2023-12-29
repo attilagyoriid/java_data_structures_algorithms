@@ -268,4 +268,24 @@ class LinkedListTest {
         ll.printList();
         Assertions.assertIterableEquals(List.of(2,1,4,3, 6, 5),ll.getAsList());
     }
+
+    /**
+     * Remove Duplicates Linked List
+     * You are given a singly linked list that contains integer values, where some of these values may be duplicated.
+     */
+    @Test
+    void removeDuplicates() {
+        LinkedList ll = new LinkedList(1);
+
+        ll.append(1);
+        ll.append(2);
+        ll.append(2);
+        ll.append(3);
+        ll.append(3);
+        ll.append(3);
+        ll.append(4);
+
+        ll.removeDuplicates();
+        Assertions.assertIterableEquals(List.of(1,2,3,4),ll.getAsList());
+    }
 }

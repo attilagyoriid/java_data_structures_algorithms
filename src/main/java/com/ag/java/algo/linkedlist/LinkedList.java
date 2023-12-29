@@ -1,7 +1,9 @@
 package com.ag.java.algo.linkedlist;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class LinkedList {
 
@@ -300,5 +302,28 @@ public class LinkedList {
 
 
     }
+
+    /**
+     * Remove Duplicates Linked List
+     * You are given a singly linked list that contains integer values, where some of these values may be duplicated.
+     */
+    public void removeDuplicates() {
+        Set<Integer> values = new HashSet<>();
+        Node previous = null;
+        Node current = head;
+        while (current != null) {
+            if (values.contains(current.value)) {
+                previous.next = current.next;
+                length -= 1;
+            } else {
+                values.add(current.value);
+                previous = current;
+            }
+            current = current.next;
+        }
+    }
+
+
+
 
 }
