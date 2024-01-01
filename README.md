@@ -33,6 +33,8 @@ This section lists any major frameworks/libraries used to bootstrap project.
 - Array
     - Remove Element
     - Find Max Min
+- Stack
+  - Valid Parentheses
 ## Run the demo:
 
 1. Standard Execution:
