@@ -30,4 +30,17 @@ class ArraysAlgoTest {
         int val = 5;
         Assertions.assertEquals(7, ArraysAlgo.removeElement(nums, val));
     }
+
+    /**
+     * Array: Find Max Min
+     *
+     * In this problem, you are given an array of integers,
+     * and the task is to write a method that finds the maximum and minimum numbers in the array.
+     */
+    @Test
+    void findMaxMin() {
+        int[] nums = new int[] {5, 3, 8, 1, 6, 9};
+        Assertions.assertArrayEquals(new int[] { 9, 1}, ArraysAlgo.findMaxMin(nums));
+    }
+
 }

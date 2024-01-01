@@ -32,6 +32,7 @@ This section lists any major frameworks/libraries used to bootstrap project.
     - Two of sum
 - Array
     - Remove Element
+    - Find Max Min
 ## Run the demo:
 
 1. Standard Execution:
