@@ -30,6 +30,8 @@ This section lists any major frameworks/libraries used to bootstrap project.
 
 - HashMap
     - Two of sum
+- Array
+    - Remove Element
 ## Run the demo:
 
 1. Standard Execution:
