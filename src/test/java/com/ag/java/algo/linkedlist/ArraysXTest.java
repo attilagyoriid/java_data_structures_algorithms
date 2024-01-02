@@ -121,5 +121,34 @@ class ArraysXTest {
         Assertions.assertEquals(0, ArraysX.maxProfitTwoPointersAggregate(prices));
     }
 
+    @Test
+    void maxProfitAggregate_Mix() {
+        int[] prices = new int[] {7,1,5,3,6,4};
+        Assertions.assertEquals(7, ArraysX.maxProfitAggregate(prices));
+    }
+    @Test
+    void maxProfitAggregate_Descending() {
+        int[] prices = new int[] {6, 5, 4, 3, 2, 1};
+        Assertions.assertEquals(0, ArraysX.maxProfitAggregate(prices));
+    }
+
+    @Test
+    void maxProfitAggregate_Ascending() {
+        int[] prices = new int[] {1,2,3,4,5,6};
+        Assertions.assertEquals(5, ArraysX.maxProfitAggregate(prices));
+    }
+
+    @Test
+    void maxProfitAggregate_Empty() {
+        int[] prices = new int[] {};
+        Assertions.assertEquals(0, ArraysX.maxProfitAggregate(prices));
+    }
+
+    @Test
+    void maxProfitAggregate_OneItem() {
+        int[] prices = new int[] {1};
+        Assertions.assertEquals(0, ArraysX.maxProfitAggregate(prices));
+    }
+
 
 }
