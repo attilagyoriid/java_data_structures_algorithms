@@ -1,6 +1,6 @@
 package com.ag.java.algo.linkedlist;
 
-public class ArraysAlgo {
+public class ArraysX {
 
     /**
      * Array: Remove Element
