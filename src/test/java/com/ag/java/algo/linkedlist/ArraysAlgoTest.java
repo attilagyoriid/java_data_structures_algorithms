@@ -43,4 +43,45 @@ class ArraysAlgoTest {
         Assertions.assertArrayEquals(new int[] { 9, 1}, ArraysAlgo.findMaxMin(nums));
     }
 
+    /**
+     * Array: Max Profit | Best Time to Buy and Sell a Stock
+     *
+     * You are tasked with implementing a method, maxProfit that takes an array of integers representing the price of a given stock on different days.
+     *
+     * The method should determine the maximum profit that can be made by buying and selling the stock once. Note that you must buy before you can sell.
+     */
+    @Test
+    void maxProfit_Descending() {
+        int[] prices = new int[] {6, 5, 4, 3, 2, 1};
+        Assertions.assertEquals(0, ArraysAlgo.maxProfitTwoPointers(prices));
+        Assertions.assertEquals(0, ArraysAlgo.maxProfit(prices));
+    }
+
+    @Test
+    void maxProfit_Ascending() {
+        int[] prices = new int[] {1,2,3,4,5,6};
+        Assertions.assertEquals(5, ArraysAlgo.maxProfitTwoPointers(prices));
+        Assertions.assertEquals(5, ArraysAlgo.maxProfit(prices));
+    }
+
+    @Test
+    void maxProfit_Empty() {
+        int[] prices = new int[] {};
+        Assertions.assertEquals(0, ArraysAlgo.maxProfitTwoPointers(prices));
+        Assertions.assertEquals(0, ArraysAlgo.maxProfit(prices));
+    }
+
+    @Test
+    void maxProfit_OneItem() {
+        int[] prices = new int[] {1};
+        Assertions.assertEquals(0, ArraysAlgo.maxProfitTwoPointers(prices));
+        Assertions.assertEquals(0, ArraysAlgo.maxProfit(prices));
+    }
+
+    @Test
+    void maxProfit_Mix() {
+        int[] prices = new int[] {2,1,3,6,5,7,8,3};
+        Assertions.assertEquals(7, ArraysAlgo.maxProfitTwoPointers(prices));
+        Assertions.assertEquals(7, ArraysAlgo.maxProfit(prices));
+    }
 }
