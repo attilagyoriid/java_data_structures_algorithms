@@ -88,4 +88,33 @@ public class ArraysX {
         return maxProfit;
     }
 
+    /**
+     * Array: Max Profit | Best Time to Buy and Sell a Stock II
+     *
+     * You are tasked with implementing a method, maxProfit that takes an array of integers representing the price of a given stock on different days.
+     *
+     * The method should determine the maximum aggregated profit that can be made by buying and selling the stock. Note that you must buy before you can sell.
+     */
+    public static int maxProfitTwoPointersAggregate(int[] prices) {
+        if (prices.length < 2) {
+            return 0;
+        }
+        int aggregateProfit = 0;
+        int buyL = 0;
+        int sellR = 1;
+
+        while (sellR < prices.length) {
+
+            if (prices[buyL] < prices[sellR]) {
+
+                aggregateProfit += prices[sellR] - prices[buyL];
+
+            }
+            buyL++;
+            sellR++;
+        }
+
+        return aggregateProfit;
+    }
+
 }

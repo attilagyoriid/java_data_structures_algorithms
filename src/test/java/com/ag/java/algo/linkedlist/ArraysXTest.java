@@ -84,4 +84,42 @@ class ArraysXTest {
         Assertions.assertEquals(7, ArraysX.maxProfitTwoPointers(prices));
         Assertions.assertEquals(7, ArraysX.maxProfit(prices));
     }
+
+    /**
+     * Array: Max Profit | Best Time to Buy and Sell a Stock II
+     *
+     * You are tasked with implementing a method, maxProfit that takes an array of integers representing the price of a given stock on different days.
+     *
+     * The method should determine the maximum aggregated profit that can be made by buying and selling the stock. Note that you must buy before you can sell.
+     */
+    @Test
+    void maxProfitTwoPointersAggregate_Mix() {
+        int[] prices = new int[] {7,1,5,3,6,4};
+        Assertions.assertEquals(7, ArraysX.maxProfitTwoPointersAggregate(prices));
+    }
+    @Test
+    void maxProfitTwoPointersAggregate_Descending() {
+        int[] prices = new int[] {6, 5, 4, 3, 2, 1};
+        Assertions.assertEquals(0, ArraysX.maxProfitTwoPointersAggregate(prices));
+    }
+
+    @Test
+    void maxProfitTwoPointersAggregate_Ascending() {
+        int[] prices = new int[] {1,2,3,4,5,6};
+        Assertions.assertEquals(5, ArraysX.maxProfitTwoPointersAggregate(prices));
+    }
+
+    @Test
+    void maxProfitTwoPointersAggregate_Empty() {
+        int[] prices = new int[] {};
+        Assertions.assertEquals(0, ArraysX.maxProfitTwoPointersAggregate(prices));
+    }
+
+    @Test
+    void maxProfitTwoPointersAggregate_OneItem() {
+        int[] prices = new int[] {1};
+        Assertions.assertEquals(0, ArraysX.maxProfitTwoPointersAggregate(prices));
+    }
+
+
 }
