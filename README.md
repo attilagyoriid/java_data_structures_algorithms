@@ -37,6 +37,9 @@ This section lists any major frameworks/libraries used to bootstrap project.
     - Max Profit | Best Time to Buy and Sell a Stock II
 - Stack
   - Valid Parentheses
+- String
+  - Valid Palindrome
+  
 ## Run the demo:
 
 1. Standard Execution:
