@@ -1,5 +1,6 @@
-package com.ag.java.algo.linkedlist;
+package com.ag.java.algo.arrays;
 
+import com.ag.java.algo.arrays.ArraysX;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

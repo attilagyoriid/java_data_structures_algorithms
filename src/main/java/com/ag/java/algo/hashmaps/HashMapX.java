@@ -1,4 +1,4 @@
-package com.ag.java.algo.linkedlist;
+package com.ag.java.algo.hashmaps;
 
 import java.util.HashMap;
 import java.util.List;

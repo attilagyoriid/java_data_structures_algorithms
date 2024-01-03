@@ -1,4 +1,4 @@
-package com.ag.java.algo.linkedlist;
+package com.ag.java.algo.strings;
 
 public class StringX {
 

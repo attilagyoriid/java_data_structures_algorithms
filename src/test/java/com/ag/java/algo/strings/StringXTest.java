@@ -1,5 +1,6 @@
-package com.ag.java.algo.linkedlist;
+package com.ag.java.algo.strings;
 
+import com.ag.java.algo.strings.StringX;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

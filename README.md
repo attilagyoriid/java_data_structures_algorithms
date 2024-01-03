@@ -39,7 +39,8 @@ This section lists any major frameworks/libraries used to bootstrap project.
   - Valid Parentheses
 - String
   - Valid Palindrome
-  
+- Sort
+  - Bubble Sort
 ## Run the demo:
 
 1. Standard Execution:
