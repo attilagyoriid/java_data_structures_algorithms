@@ -43,6 +43,7 @@ This section lists any major frameworks/libraries used to bootstrap project.
   - Bubble Sort
   - Insertion Sort
   - Merge Sort
+  - Quick Sort
 ## Run the demo:
 
 1. Standard Execution:
