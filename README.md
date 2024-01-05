@@ -41,6 +41,7 @@ This section lists any major frameworks/libraries used to bootstrap project.
   - Valid Palindrome
 - Sort
   - Bubble Sort
+  - Insertion Sort
   - Merge Sort
 ## Run the demo:
 
