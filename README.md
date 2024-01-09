@@ -44,6 +44,8 @@ This section lists any major frameworks/libraries used to bootstrap project.
   - Insertion Sort
   - Merge Sort
   - Quick Sort
+- Binary Search Tree
+  - Depth First Search: in Order
 ## Run the demo:
 
 1. Standard Execution:
