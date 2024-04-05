@@ -1,5 +1,8 @@
 package com.ag.java.algo.arrays;
 
+import java.security.InvalidParameterException;
+import java.util.*;
+
 public class ArraysX {
 
     /**
@@ -130,6 +133,36 @@ public class ArraysX {
 
         }
         return aggregateProfit;
+    }
+
+    /**
+     * Number of Notes
+     * @param amount amount to break down by notes
+     * @return number of notes
+     */
+    public static Map<Integer, Integer> getNumberOfNotes(int amount) {
+        if (amount < 1) {
+            throw new InvalidParameterException("Amount should be greater than 1");
+        }
+        var notes = Arrays.asList(1000,500,200,100,50,10,5,1);
+
+        var numberOfNotes = new HashMap<Integer,Integer>();
+
+        for (int i = 0; i < notes.size(); i++) {
+            while ((amount / notes.get(i) >= 1)) {
+                if (numberOfNotes.getOrDefault(notes.get(i),0) == 0) {
+                    numberOfNotes.put(notes.get(i),1);
+                } else {
+                    numberOfNotes.put(notes.get(i),numberOfNotes.get(notes.get(i)) + 1);
+                }
+
+                amount = amount - notes.get(i);
+
+            }
+        }
+
+
+        return numberOfNotes;
     }
 
 }

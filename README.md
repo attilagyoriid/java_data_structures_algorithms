@@ -35,6 +35,7 @@ This section lists any major frameworks/libraries used to bootstrap project.
     - Find Max Min
     - Max Profit | Best Time to Buy and Sell a Stock
     - Max Profit | Best Time to Buy and Sell a Stock II
+    - Number of notes
 - Stack
   - Valid Parentheses
 - String
