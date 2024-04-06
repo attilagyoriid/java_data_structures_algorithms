@@ -1,5 +1,10 @@
 package com.ag.java.algo.strings;
 
+import java.util.Deque;
+import java.util.List;
+import java.util.Map;
+import java.util.Stack;
+
 public class StringX {
 
     /**
@@ -29,5 +34,31 @@ public class StringX {
         }
 
         return true;
+    }
+
+    public static boolean isValidParenthesis(List<Character> parenthesis) {
+
+        var parenthesisPairs = Map.of('{','}','[',']','(',')');
+
+        //{}[]()
+        //{[]}()
+        Stack<Character> stack = new Stack<>();
+
+        for (int i = 0; i < parenthesis.size(); i++) {
+            Character currentP = parenthesis.get(i);
+            if (parenthesisPairs.containsKey(currentP)) {
+                stack.push(parenthesisPairs.get(currentP));
+            } else {
+                if (!currentP.equals(stack.pop())) {
+                    return false;
+                }
+            }
+        }
+        if (stack.size() != 0) {
+            return false;
+        }
+
+        return true;
+
     }
 }

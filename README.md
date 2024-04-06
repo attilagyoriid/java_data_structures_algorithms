@@ -42,6 +42,7 @@ This section lists any major frameworks/libraries used to bootstrap project.
   - Valid Parentheses
 - String
   - Valid Palindrome
+  - Is Valid Parenthesis
 - Sort
   - Bubble Sort
   - Insertion Sort
