@@ -88,6 +88,18 @@ class LinkedListTest {
     }
 
     @Test
+    void findKthFromEnd_happy2() {
+        LinkedList myList = new LinkedList(1);
+        myList.append(2);
+        myList.append(3);
+        myList.append(4);
+        myList.append(5);
+        myList.append(6);
+        myList.append(7);
+        Assertions.assertEquals(6, myList.findKthFromEnd(2).value);
+    }
+
+    @Test
     void findKthFromEnd_index_out() {
         LinkedList myList = new LinkedList(1);
         myList.append(2);
@@ -205,7 +217,7 @@ class LinkedListTest {
     void set() {
         LinkedList myList = new LinkedList(1);
         myList.append(2);
-        Assertions.assertTrue( myList.set(1,8));
+        Assertions.assertTrue(myList.set(1, 8));
         Assertions.assertEquals(8, myList.get(1).getValue());
     }
 
@@ -213,7 +225,7 @@ class LinkedListTest {
     void insert() {
         LinkedList myList = new LinkedList(1);
         myList.append(9);
-        Assertions.assertTrue( myList.insert(1,8));
+        Assertions.assertTrue(myList.insert(1, 8));
         Assertions.assertEquals(8, myList.get(1).getValue());
         Assertions.assertEquals(9, myList.get(2).getValue());
     }
@@ -250,7 +262,7 @@ class LinkedListTest {
         ll.append(2);
         ll.append(1);
         ll.partitionList(5);
-        Assertions.assertIterableEquals(List.of(3,2,1,5,8,10),ll.getAsList());
+        Assertions.assertIterableEquals(List.of(3, 2, 1, 5, 8, 10), ll.getAsList());
     }
 
     /**
@@ -266,7 +278,7 @@ class LinkedListTest {
         ll.append(6);
         ll.swapPairs();
         ll.printList();
-        Assertions.assertIterableEquals(List.of(2,1,4,3, 6, 5),ll.getAsList());
+        Assertions.assertIterableEquals(List.of(2, 1, 4, 3, 6, 5), ll.getAsList());
     }
 
     /**
@@ -286,6 +298,19 @@ class LinkedListTest {
         ll.append(4);
 
         ll.removeDuplicates();
-        Assertions.assertIterableEquals(List.of(1,2,3,4),ll.getAsList());
+        Assertions.assertIterableEquals(List.of(1, 2, 3, 4), ll.getAsList());
+    }
+
+    @Test
+    void binaryToDecimal() {
+        LinkedList ll = new LinkedList(1); //64
+
+        ll.append(1); //32
+        ll.append(0); //16
+        ll.append(0); //8
+        ll.append(1); //4
+        ll.append(1); //2
+        ll.append(1); //1
+        Assertions.assertEquals(103, ll.binaryToDecimal());
     }
 }

@@ -27,6 +27,7 @@ This section lists any major frameworks/libraries used to bootstrap project.
   - Partition List
   - Swap every two adjacent nodes
   - Remove Duplicates
+  - Binary To Decimal
 
 - HashMap
     - Two of sum
