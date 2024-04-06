@@ -28,6 +28,7 @@ This section lists any major frameworks/libraries used to bootstrap project.
   - Swap every two adjacent nodes
   - Remove Duplicates
   - Binary To Decimal
+  - Is Valid Palindrome
 
 - HashMap
     - Two of sum

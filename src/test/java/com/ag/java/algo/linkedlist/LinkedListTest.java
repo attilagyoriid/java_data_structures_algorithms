@@ -313,4 +313,44 @@ class LinkedListTest {
         ll.append(1); //1
         Assertions.assertEquals(103, ll.binaryToDecimal());
     }
+
+    @Test
+    void isValidPalindrome_even() {
+        LinkedList ll = new LinkedList(1);
+
+        ll.append(1);
+        ll.append(2);
+        ll.append(3);
+        ll.append(3);
+        ll.append(2);
+        ll.append(1);
+        ll.append(1);
+        Assertions.assertTrue(ll.isValidPalindrome());
+    }
+
+    @Test
+    void isValidPalindrome_odd() {
+        LinkedList ll = new LinkedList(1);
+
+        ll.append(1);
+        ll.append(2);
+        ll.append(3);
+        ll.append(2);
+        ll.append(1);
+        ll.append(1);
+        Assertions.assertTrue(ll.isValidPalindrome());
+    }
+
+    @Test
+    void isValidPalindrome_notPalindrome_odd() {
+        LinkedList ll = new LinkedList(1);
+
+        ll.append(1);
+        ll.append(2);
+        ll.append(3);
+        ll.append(2);
+        ll.append(1);
+        ll.append(5);
+        Assertions.assertFalse(ll.isValidPalindrome());
+    }
 }

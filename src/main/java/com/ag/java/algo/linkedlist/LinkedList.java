@@ -173,6 +173,19 @@ public class LinkedList {
         }
     }
 
+    public Node reverse(Node tempHead) {
+        Node temp = tempHead;
+        Node after = temp.next;
+        Node before = null;
+        while (temp !=null) {
+            after = temp.next;
+            temp.next = before;
+            before = temp;
+            temp = after;
+        }
+        return before; //current head
+    }
+
 
     /**
      * Implement a method called findMiddleNode that returns the middle node of the linked list.
@@ -245,26 +258,26 @@ public class LinkedList {
      * Partition List
      * rearrange the linked list such that
      * all nodes with a value less than x come before all nodes with a value greater than or equal to x
-     *
+     * <p>
      * Check if head is null. If it is, the list is empty, so simply return.
-     *
+     * <p>
      * Create two dummy nodes, dummy1 and dummy2, and initialize two pointers, prev1 and prev2, pointing to these dummy nodes respectively.
-     *
+     * <p>
      * Initialize a pointer current pointing to the head of the list.
-     *
+     * <p>
      * Start a while loop that continues until current is null:
-     *
+     * <p>
      * Check if the value of the current node is less than the given value x. i. If it is, update the next pointer of prev1 to point to current,
      * and update prev1 to point to current.
-     *
+     * <p>
      * If it is not, update the next pointer of prev2 to point to current, and update prev2 to point to current.
-     *
+     * <p>
      * Move current one step ahead (i.e., current = current.next).
-     *
+     * <p>
      * Set the next pointer of prev2 to null, which terminates the second partition.
-     *
+     * <p>
      * Set the next pointer of prev1 to the first node of the second partition (i.e., prev1.next = dummy2.next).
-     *
+     * <p>
      * Update the head of the list to the first node of the first partition (i.e., head = dummy1.next).
      */
     public void partitionList(int x) {
@@ -328,38 +341,38 @@ public class LinkedList {
      * Remove Duplicates Linked List
      * You are given a singly linked list that contains integer values, where some of these values may be duplicated.
      * Pseudo Code (for solution that uses a set):
-     *
+     * <p>
      * Create an empty HashSet called values to store the unique node values encountered in the linked list.
-     *
+     * <p>
      * Initialize two pointers: previous set to null, and current pointing to the head of the list.
-     *
+     * <p>
      * Start a while loop that continues until current is null: a. Check if values contains the value of the current node. i.
      * If it does, update the next pointer of the previous node to skip the current node (i.e., previous.next = current.next),
      * and decrement the list length by 1. b. If it does not, add the value of the current node to the values set and update the previous pointer
      * to point to the current node. c. Move current one step ahead (i.e., current = current.next).
-     *
+     * <p>
      * When the while loop ends, all duplicate nodes will have been removed from the list.
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * This algorithm uses a HashSet to keep track of unique values in the linked list and
      * removes duplicates by updating the next pointers of the nodes as needed.
-     *
-     *
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
+     * <p>
+     * <p>
      * Pseudo Code (for solution that does not use a set):
-     *
+     * <p>
      * Initialize a pointer current pointing to the head of the list.
-     *
+     * <p>
      * Start an outer while loop that continues until current is null: a. Initialize a pointer runner pointing to the current node. b.
      * Start an inner while loop that continues until runner.next is null: i.
      * Check if the value of the runner.next node is equal to the value of the current node.
      * 1. If it is, update the next pointer of the runner node to skip the duplicate node (i.e., runner.next = runner.next.next),
      * and decrement the list length by 1. ii. If it is not, move the runner pointer one step ahead (i.e., runner = runner.next).
      * c. Move current one step ahead (i.e., current = current.next).
-     *
+     * <p>
      * When the outer while loop ends, all duplicate nodes will have been removed from the list.
      */
     public void removeDuplicates() {
@@ -380,48 +393,49 @@ public class LinkedList {
 
     /**
      * Convert binary to decimal
+     *
      * @return decimal
-     *
+     * <p>
      * 1. Start with a variable called 'num' and set it to 0.
-     *
-     *    This will store our resulting decimal number.
-     *
-     *
-     *
+     * <p>
+     * This will store our resulting decimal number.
+     * <p>
+     * <p>
+     * <p>
      * 2. Create a pointer called 'current' and set it to point to the start of the linked list (the head).
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * 3. Begin a loop. Continue this loop as long as 'current' is not pointing to nothing (i.e., as long as we haven't reached the end of the list).
-     *
-     *
-     *
-     *    a. Inside the loop, the first step is to double the current value of 'num'.
-     *
-     *       This is like making space for the next binary digit.
-     *
-     *       Imagine we are reading a binary number from left to right.
-     *
-     *       Each time we move to the next position, we're shifting everything
-     *
-     *       to the left, which is equivalent to doubling in the binary system.
-     *
-     *
-     *
-     *    b. Add the value of the node that 'current' is pointing to, to 'num'.
-     *
-     *       This value will be either 0 or 1 since it's a binary digit.
-     *
-     *       Now 'num' contains the accumulated value up to the current binary digit.
-     *
-     *
-     *
-     *    c. Move the 'current' pointer to the next node in the list to continue
-     *
-     *       the loop for the next binary digit.
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
+     * a. Inside the loop, the first step is to double the current value of 'num'.
+     * <p>
+     * This is like making space for the next binary digit.
+     * <p>
+     * Imagine we are reading a binary number from left to right.
+     * <p>
+     * Each time we move to the next position, we're shifting everything
+     * <p>
+     * to the left, which is equivalent to doubling in the binary system.
+     * <p>
+     * <p>
+     * <p>
+     * b. Add the value of the node that 'current' is pointing to, to 'num'.
+     * <p>
+     * This value will be either 0 or 1 since it's a binary digit.
+     * <p>
+     * Now 'num' contains the accumulated value up to the current binary digit.
+     * <p>
+     * <p>
+     * <p>
+     * c. Move the 'current' pointer to the next node in the list to continue
+     * <p>
+     * the loop for the next binary digit.
+     * <p>
+     * <p>
+     * <p>
      * 4. Once the loop finishes (we've processed all binary digits), return the value of 'num' which now contains
      * the decimal representation of the binary number in the linked list.
      */
@@ -435,6 +449,37 @@ public class LinkedList {
         return num;
     }
 
+    /**
+     * Check if a valid palindrome stored in linked list
+     *
+     * @return true if palindrome
+     */
+    public boolean isValidPalindrome() {
 
+        Node fast = head;
+        Node slow = head;
+
+        // find the middle point
+        while (fast != null && fast.next != null) {
+
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        // reverse the second half
+        Node left = head;
+        Node right = reverse(slow);
+
+        // check if palindrome
+        while(right !=null) {
+            if (left.getValue() != right.getValue()) {
+                return false;
+            }
+            left = left.next;
+            right = right.next;
+
+        }
+        return true;
+    }
 
 }
