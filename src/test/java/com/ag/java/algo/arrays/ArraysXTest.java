@@ -180,4 +180,9 @@ class ArraysXTest {
     }
 
 
+    @Test
+    void buyAndSellStock() {
+        int[] prices = new int[]{2,1,5,6,2,8};
+        Assertions.assertEquals(7, ArraysX.buyAndSellStock(prices));
+    }
 }

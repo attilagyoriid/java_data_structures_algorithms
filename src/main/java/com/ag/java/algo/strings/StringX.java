@@ -93,7 +93,7 @@ public class StringX {
     /**
      * Longest Substring Without Repeating Characters
      * @param text
-     * @return longes substring without repeating character
+     * @return longest substring without repeating character
      */
     public static int longestSubString(String text) {
         HashSet<Character> visitedChars = new HashSet<>();
