@@ -40,6 +40,9 @@ This section lists any major frameworks/libraries used to bootstrap project.
     - Number of notes
 - Stack
   - Valid Parentheses
+- Heap
+  - Max heap
+  - Insert
 - String
   - Valid Palindrome
   - Is Valid Parenthesis
