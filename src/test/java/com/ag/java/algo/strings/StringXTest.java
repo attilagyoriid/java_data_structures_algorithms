@@ -43,4 +43,10 @@ class StringXTest {
         var parenthesis = List.of('{','{', '}','[',']',']','[','}');
         Assertions.assertFalse(StringX.isValidParenthesis(parenthesis));
     }
+
+    @Test
+    void maxChars() {
+        String text = "abcdeebdafefabbacawa";
+        Assertions.assertEquals('a', StringX.maxChars(text));
+    }
 }

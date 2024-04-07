@@ -1,9 +1,6 @@
 package com.ag.java.algo.strings;
 
-import java.util.Deque;
-import java.util.List;
-import java.util.Map;
-import java.util.Stack;
+import java.util.*;
 
 public class StringX {
 
@@ -59,6 +56,31 @@ public class StringX {
         }
 
         return true;
+
+    }
+
+    public static char maxChars(String text) {
+        Map<Character,Integer> map = new HashMap<>();
+        for (int i = 0; i < text.length(); i++) {
+            char currentChar = text.charAt(i);
+            if (map.containsKey(currentChar)) {
+                map.put(currentChar, map.get(currentChar) + 1);
+            } else {
+                map.put(currentChar,1);
+            }
+        }
+
+        int[] maxCount = new int[1];
+        char[] maxChar = new char[1];
+
+
+        map.forEach((k,v) -> {
+            if (v>maxCount[0]) {
+                maxCount[0] = v;
+                maxChar[0] = k;
+            }
+        });
+        return maxChar[0];
 
     }
 }
