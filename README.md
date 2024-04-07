@@ -48,6 +48,7 @@ This section lists any major frameworks/libraries used to bootstrap project.
   - Valid Palindrome
   - Is Valid Parenthesis
   - Max character: character with the highest occurrence in a string
+  - Longest Substring Without Repeating Characters
 - Sort
   - Bubble Sort
   - Insertion Sort

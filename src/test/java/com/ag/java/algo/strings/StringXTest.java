@@ -49,4 +49,10 @@ class StringXTest {
         String text = "abcdeebdafefabbacawa";
         Assertions.assertEquals('a', StringX.maxChars(text));
     }
+
+    @Test
+    void longestSubString() {
+        String text = "abcdeebdafefwuiabbacawa";
+        Assertions.assertEquals(7, StringX.longestSubString(text));
+    }
 }

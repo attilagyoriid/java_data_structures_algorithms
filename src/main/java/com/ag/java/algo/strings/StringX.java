@@ -59,6 +59,12 @@ public class StringX {
 
     }
 
+    /**
+     * Max character: character with the highest occurrence in a string
+     * @param text
+     * @return character with highest occurrence
+     */
+
     public static char maxChars(String text) {
         Map<Character,Integer> map = new HashMap<>();
         for (int i = 0; i < text.length(); i++) {
@@ -81,6 +87,33 @@ public class StringX {
             }
         });
         return maxChar[0];
+
+    }
+
+    /**
+     * Longest Substring Without Repeating Characters
+     * @param text
+     * @return longes substring without repeating character
+     */
+    public static int longestSubString(String text) {
+        HashSet<Character> visitedChars = new HashSet<>();
+        int max = 0;
+        char left_pointer = 0;
+        char right_pointer = 0;
+
+        while (right_pointer<text.length()) {
+            if (!visitedChars.contains(text.charAt(right_pointer))) {
+                visitedChars.add(text.charAt(right_pointer));
+                max = Math.max(max, visitedChars.size());
+                right_pointer++;
+            } else {
+                visitedChars.remove(text.charAt(left_pointer));
+                left_pointer++;
+            }
+
+        }
+
+        return max;
 
     }
 }
