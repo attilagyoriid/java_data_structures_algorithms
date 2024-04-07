@@ -43,6 +43,7 @@ This section lists any major frameworks/libraries used to bootstrap project.
 - Heap
   - Max heap
   - Insert
+  - Remove
 - String
   - Valid Palindrome
   - Is Valid Parenthesis
