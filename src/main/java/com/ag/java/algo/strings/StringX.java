@@ -35,7 +35,7 @@ public class StringX {
 
     public static boolean isValidParenthesis(List<Character> parenthesis) {
 
-        var parenthesisPairs = Map.of('{','}','[',']','(',')');
+        var parenthesisPairs = Map.of('{', '}', '[', ']', '(', ')');
 
         //{}[]()
         //{[]}()
@@ -61,18 +61,19 @@ public class StringX {
 
     /**
      * Max character: character with the highest occurrence in a string
+     *
      * @param text
      * @return character with highest occurrence
      */
 
     public static char maxChars(String text) {
-        Map<Character,Integer> map = new HashMap<>();
+        Map<Character, Integer> map = new HashMap<>();
         for (int i = 0; i < text.length(); i++) {
             char currentChar = text.charAt(i);
             if (map.containsKey(currentChar)) {
                 map.put(currentChar, map.get(currentChar) + 1);
             } else {
-                map.put(currentChar,1);
+                map.put(currentChar, 1);
             }
         }
 
@@ -80,8 +81,8 @@ public class StringX {
         char[] maxChar = new char[1];
 
 
-        map.forEach((k,v) -> {
-            if (v>maxCount[0]) {
+        map.forEach((k, v) -> {
+            if (v > maxCount[0]) {
                 maxCount[0] = v;
                 maxChar[0] = k;
             }
@@ -92,6 +93,7 @@ public class StringX {
 
     /**
      * Longest Substring Without Repeating Characters
+     *
      * @param text
      * @return longest substring without repeating character
      */
@@ -101,7 +103,7 @@ public class StringX {
         char left_pointer = 0;
         char right_pointer = 0;
 
-        while (right_pointer<text.length()) {
+        while (right_pointer < text.length()) {
             if (!visitedChars.contains(text.charAt(right_pointer))) {
                 visitedChars.add(text.charAt(right_pointer));
                 max = Math.max(max, visitedChars.size());
@@ -114,6 +116,34 @@ public class StringX {
         }
 
         return max;
+
+    }
+
+    /**
+     * Valid Anagram for text1 and text2
+     * @param text1
+     * @param text2
+     * @return true if they are valid anagrams
+     */
+    public static boolean isValidAnagram(String text1, String text2) {
+        if (text1.length() != text2.length()) {
+            return false;
+        }
+        int[] chars = new int[26];
+        for (int i = 0; i < text1.length(); i++) {
+            chars[text1.charAt(i) - 'a']++;
+            chars[text2.charAt(i) - 'a']--;
+        }
+
+        for (int c : chars) {
+
+            if (c != 0) {
+                return false;
+            }
+
+        }
+
+        return true;
 
     }
 }

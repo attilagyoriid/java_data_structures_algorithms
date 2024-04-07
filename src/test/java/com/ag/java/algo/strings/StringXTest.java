@@ -55,4 +55,25 @@ class StringXTest {
         String text = "abcdeebdafefwuiabbacawa";
         Assertions.assertEquals(7, StringX.longestSubString(text));
     }
+
+    @Test
+    void isValidAnagram() {
+        String text1 = "aabbccbeef";
+        String text2 = "bacabcebef";
+        Assertions.assertTrue(StringX.isValidAnagram(text1,text2));
+    }
+
+    @Test
+    void isValidAnagram_length_differ_fail() {
+        String text1 = "aabbccbeef";
+        String text2 = "bacabcebe";
+        Assertions.assertFalse(StringX.isValidAnagram(text1,text2));
+    }
+
+    @Test
+    void isValidAnagram_not_anagram_fail() {
+        String text1 = "aabbccbef";
+        String text2 = "bacacebef";
+        Assertions.assertFalse(StringX.isValidAnagram(text1,text2));
+    }
 }

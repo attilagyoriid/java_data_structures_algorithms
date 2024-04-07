@@ -50,6 +50,7 @@ This section lists any major frameworks/libraries used to bootstrap project.
   - Is Valid Parenthesis
   - Max character: character with the highest occurrence in a string
   - Longest Substring Without Repeating Characters
+  - Valid Anagrams
 - Sort
   - Bubble Sort
   - Insertion Sort
