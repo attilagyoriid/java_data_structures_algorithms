@@ -40,6 +40,7 @@ This section lists any major frameworks/libraries used to bootstrap project.
     - Number of notes
     - Best Time to Buy and Sell Stock
     - Two Sum
+    - Find Duplicates
 - Stack
   - Valid Parentheses
 - Heap

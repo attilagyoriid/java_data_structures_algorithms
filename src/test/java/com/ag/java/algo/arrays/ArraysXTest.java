@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.security.InvalidParameterException;
+import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -192,5 +193,11 @@ class ArraysXTest {
         Assertions.assertArrayEquals(new int[]{1,5}, ArraysX.twoSum(list,9));
 
 
+    }
+
+    @Test
+    void findDuplicates() {
+        int[] list = new int[]{2,1,5,6,2,5,7};
+        Assertions.assertIterableEquals(List.of(2,5), ArraysX.findDuplicates(list));
     }
 }

@@ -1,9 +1,7 @@
 package com.ag.java.algo.arrays;
 
 import java.security.InvalidParameterException;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class ArraysX {
 
@@ -193,9 +191,9 @@ public class ArraysX {
         return maxProfit;
     }
 
-    public static int[] twoSum(int[] list,int number) {
+    public static int[] twoSum(int[] list, int number) {
         int[] result = new int[2];
-        Map<Integer,Integer> map = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>();
         int currentDiff = 0;
         for (int i = 0; i < list.length; i++) {
             currentDiff = number - list[i];
@@ -204,9 +202,32 @@ public class ArraysX {
                 result[1] = i;
                 return result;
             }
-            map.put(list[i],i);
+            map.put(list[i], i);
 
         }
         return result;
     }
+
+    /**
+     * Find Duplicates
+     * in O(n) time and O(1) space
+     *
+     * @param list
+     * @return duplicates
+     */
+    public static List findDuplicates(int[] list) {
+        List<Integer> result = new ArrayList<>();
+
+        for (int l : list) {
+            l = Math.abs(l);
+            if (list[l - 1] < 0) {
+                result.add(l);
+
+            }
+            list[l - 1] = -1 * list[l - 1];
+        }
+
+        return result;
+    }
+
 }
