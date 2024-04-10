@@ -200,4 +200,10 @@ class ArraysXTest {
         int[] list = new int[]{2,1,5,6,2,5,7};
         Assertions.assertIterableEquals(List.of(2,5), ArraysX.findDuplicates(list));
     }
+
+    @Test
+    void maximumSubarray() {
+        int[] list = new int[]{2,-3,5,-3,2,8,-2};
+        Assertions.assertEquals(12, ArraysX.maximumSubarray(list));
+    }
 }

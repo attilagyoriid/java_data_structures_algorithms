@@ -230,4 +230,20 @@ public class ArraysX {
         return result;
     }
 
+    public static int maximumSubarray(int[] list) {
+        int currentMax = 0;
+        int max = 0;
+
+        for(int l:list) {
+
+            if (currentMax < 0) {
+                currentMax = 0;
+            }
+            currentMax += l;
+            max = Math.max(max,currentMax);
+
+        }
+        return max;
+    }
+
 }
