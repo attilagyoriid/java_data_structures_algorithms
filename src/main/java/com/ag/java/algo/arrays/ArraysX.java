@@ -193,4 +193,20 @@ public class ArraysX {
         return maxProfit;
     }
 
+    public static int[] twoSum(int[] list,int number) {
+        int[] result = new int[2];
+        Map<Integer,Integer> map = new HashMap<>();
+        int currentDiff = 0;
+        for (int i = 0; i < list.length; i++) {
+            currentDiff = number - list[i];
+            if (map.containsKey(currentDiff)) {
+                result[0] = map.get(currentDiff);
+                result[1] = i;
+                return result;
+            }
+            map.put(list[i],i);
+
+        }
+        return result;
+    }
 }

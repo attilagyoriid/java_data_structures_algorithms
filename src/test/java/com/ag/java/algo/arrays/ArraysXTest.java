@@ -185,4 +185,12 @@ class ArraysXTest {
         int[] prices = new int[]{2,1,5,6,2,8};
         Assertions.assertEquals(7, ArraysX.buyAndSellStock(prices));
     }
+
+    @Test
+    void twoSum() {
+        int[] list = new int[]{2,1,5,6,2,8};
+        Assertions.assertArrayEquals(new int[]{1,5}, ArraysX.twoSum(list,9));
+
+
+    }
 }
