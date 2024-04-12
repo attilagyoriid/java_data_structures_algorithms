@@ -42,6 +42,7 @@ This section lists any major frameworks/libraries used to bootstrap project.
     - Two Sum
     - Find Duplicates
     - Maximum Subarray
+    - Merge Intervals
 - Stack
   - Valid Parentheses
 - Heap

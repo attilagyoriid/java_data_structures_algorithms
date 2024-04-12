@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.security.InvalidParameterException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -205,5 +207,27 @@ class ArraysXTest {
     void maximumSubarray() {
         int[] list = new int[]{2,-3,5,-3,2,8,-2};
         Assertions.assertEquals(12, ArraysX.maximumSubarray(list));
+    }
+
+    @Test
+    void minimumLengthSubarray() {
+        int[] list = new int[]{2,1,5,6,2,5,7};
+        System.out.println(ArraysX.minimumLengthSubarray(list,11));
+        Assertions.assertIterableEquals(List.of(2,5), ArraysX.minimumLengthSubarray(list,11));
+    }
+
+    @Test
+    void mergeIntervals() {
+        List<List<Integer>> intervals = new ArrayList<>();
+        intervals.add(Arrays.asList(new Integer[] { 2,8 }));
+        intervals.add(Arrays.asList(new Integer[] { 8,11 }));
+        intervals.add(Arrays.asList(new Integer[] { 12,16}));
+        intervals.add(Arrays.asList(new Integer[] { 12,15}));
+
+        List<List<Integer>> expectedIntervals = new ArrayList<>();
+        expectedIntervals.add(Arrays.asList(new Integer[] { 2,11 }));
+        expectedIntervals.add(Arrays.asList(new Integer[] { 12,16 }));
+
+        Assertions.assertIterableEquals(expectedIntervals, ArraysX.mergeIntervals(intervals));
     }
 }

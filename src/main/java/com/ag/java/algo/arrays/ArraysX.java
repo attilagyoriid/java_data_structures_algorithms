@@ -246,4 +246,70 @@ public class ArraysX {
         return max;
     }
 
+    public static List<Integer> minimumLengthSubarray(int[] list, int referenceNumberToBeGreaterThan) {
+        int left = 0;
+        int right = 0;
+        int currentValue = list[0];
+        int maxLeft = list.length+1;
+        int maxRight = 2*(list.length+1);
+        List<Integer> result = new ArrayList<>();
+        while (left<=right && right < list.length-1) {
+
+            if (currentValue > referenceNumberToBeGreaterThan) {
+                currentValue -= list[left];
+
+                if (maxRight-maxLeft > right-left) {
+                    maxLeft = left;
+                    maxRight = right;
+                }
+                left++;
+
+            } else {
+                right++;
+                currentValue += list[right];
+            }
+
+        }
+
+        for (int i = maxLeft; i <= maxRight ; i++) {
+            result.add(list[i]);
+        }
+
+        return result;
+    }
+
+    /**
+     * Merge Intervals
+     * @param intervals
+     * @return
+     */
+    public static List<List<Integer>> mergeIntervals(List<List<Integer>> intervals) {
+        if (intervals.size() < 2) {
+            return intervals;
+        }
+        Collections.sort(intervals, Comparator.comparingInt(list -> list.get(0)));
+
+
+        int actualStart = 0;
+        int actualEnd = 0;
+        int previousEnd = 0;
+        List<List<Integer>> result = new ArrayList<>();
+        result.add(intervals.get(0));
+        for (int i = 1; i < intervals.size(); i++) {
+            actualStart = intervals.get(i).get(0);
+            actualEnd = intervals.get(i).get(1);
+            previousEnd = result.get(result.size()-1).get(1);
+
+            if (previousEnd >= actualStart) {
+                result.get(result.size()-1).set(1, Math.max(previousEnd,actualEnd)); // max because: [1,5] [2,4]
+            } else {
+                result.add(Arrays.asList(new Integer[]{actualStart,actualEnd}));
+            }
+        }
+
+        return result;
+
+
+
+    }
 }
