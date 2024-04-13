@@ -76,4 +76,11 @@ class StringXTest {
         String text2 = "bacacebef";
         Assertions.assertFalse(StringX.isValidAnagram(text1,text2));
     }
+
+    @Test
+    void groupAnagrams() {
+        String[] list = new String[]{"eat","tea","tan","ate","nat","bat"};
+        List<List<String>> expectedList = List.of(List.of("tan","nat"), List.of("bat"), List.of("eat", "tea", "ate"));
+        Assertions.assertIterableEquals(expectedList, StringX.groupAnagrams(list));
+      }
 }

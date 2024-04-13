@@ -146,4 +146,31 @@ public class StringX {
         return true;
 
     }
+
+    /**
+     * Group anagrams
+     * @param list
+     * @return
+     */
+    public static List<List<String>> groupAnagrams(String[] list) {
+        Map<Map<Character,Integer>, List<String>> anagramMap = new HashMap<>();
+
+        for(String text:list) {
+            Map<Character,Integer> currentMap = new HashMap<>();
+            for (char c: text.toCharArray()) {
+                Integer currentCount = currentMap.getOrDefault(c, 0);
+                currentCount += 1;
+                currentMap.put(c,currentCount);
+            }
+            if (anagramMap.containsKey(currentMap)) {
+                anagramMap.get(currentMap).add(text);
+            } else {
+                List<String> newList = new ArrayList<>();
+                newList.add(text);
+                anagramMap.put(currentMap, newList);
+            }
+        }
+
+        return new ArrayList<>(anagramMap.values());
+    }
 }
