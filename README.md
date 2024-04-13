@@ -64,6 +64,7 @@ This section lists any major frameworks/libraries used to bootstrap project.
   - Quick Sort
 - Binary Search Tree
   - Depth First Search: in Order
+  - Maximum Depth
 ## Run the demo:
 
 1. Standard Execution:

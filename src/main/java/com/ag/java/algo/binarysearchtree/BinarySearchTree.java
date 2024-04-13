@@ -55,6 +55,27 @@ public class BinarySearchTree {
         return inOrderTraversList;
     }
 
+    /**
+     * Maximum Depth
+     * @return
+     */
+    public int maxDepth() {
+        if (root == null) {
+            return 0;
+        }
+        return maxDepth(root);
+    }
+
+    private int maxDepth(Node node) {
+        if (node == null) {
+            return 0;
+        }
+
+        int left = maxDepth(node.getLeft());
+        int right = maxDepth(node.getRight());
+        return Math.max(left,right) + 1;
+    }
+
     private void depthFirstSearchInOrder(Node root, List<Integer> inOrderTraversList) {
 
         if (root == null) {
