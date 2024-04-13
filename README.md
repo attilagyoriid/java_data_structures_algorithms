@@ -43,6 +43,7 @@ This section lists any major frameworks/libraries used to bootstrap project.
     - Find Duplicates
     - Maximum Subarray
     - Merge Intervals
+    - Non-Overlapping Intervals
 - Stack
   - Valid Parentheses
 - Heap

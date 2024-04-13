@@ -230,4 +230,15 @@ class ArraysXTest {
 
         Assertions.assertIterableEquals(expectedIntervals, ArraysX.mergeIntervals(intervals));
     }
+
+    @Test
+    void nonOverlappingIntervals() {
+        List<List<Integer>> intervals = new ArrayList<>();
+        intervals.add(Arrays.asList(new Integer[] { 1,2 }));
+        intervals.add(Arrays.asList(new Integer[] { 2,3 }));
+        intervals.add(Arrays.asList(new Integer[] { 3,4}));
+        intervals.add(Arrays.asList(new Integer[] { 1,3}));
+
+        Assertions.assertEquals(1, ArraysX.nonOverlappingIntervals(intervals));
+    }
 }

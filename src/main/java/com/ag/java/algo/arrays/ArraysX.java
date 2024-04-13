@@ -234,13 +234,13 @@ public class ArraysX {
         int currentMax = 0;
         int max = 0;
 
-        for(int l:list) {
+        for (int l : list) {
 
             if (currentMax < 0) {
                 currentMax = 0;
             }
             currentMax += l;
-            max = Math.max(max,currentMax);
+            max = Math.max(max, currentMax);
 
         }
         return max;
@@ -250,15 +250,15 @@ public class ArraysX {
         int left = 0;
         int right = 0;
         int currentValue = list[0];
-        int maxLeft = list.length+1;
-        int maxRight = 2*(list.length+1);
+        int maxLeft = list.length + 1;
+        int maxRight = 2 * (list.length + 1);
         List<Integer> result = new ArrayList<>();
-        while (left<=right && right < list.length-1) {
+        while (left <= right && right < list.length - 1) {
 
             if (currentValue > referenceNumberToBeGreaterThan) {
                 currentValue -= list[left];
 
-                if (maxRight-maxLeft > right-left) {
+                if (maxRight - maxLeft > right - left) {
                     maxLeft = left;
                     maxRight = right;
                 }
@@ -271,7 +271,7 @@ public class ArraysX {
 
         }
 
-        for (int i = maxLeft; i <= maxRight ; i++) {
+        for (int i = maxLeft; i <= maxRight; i++) {
             result.add(list[i]);
         }
 
@@ -280,6 +280,7 @@ public class ArraysX {
 
     /**
      * Merge Intervals
+     *
      * @param intervals
      * @return
      */
@@ -298,18 +299,50 @@ public class ArraysX {
         for (int i = 1; i < intervals.size(); i++) {
             actualStart = intervals.get(i).get(0);
             actualEnd = intervals.get(i).get(1);
-            previousEnd = result.get(result.size()-1).get(1);
+            previousEnd = result.get(result.size() - 1).get(1);
 
             if (previousEnd >= actualStart) {
-                result.get(result.size()-1).set(1, Math.max(previousEnd,actualEnd)); // max because: [1,5] [2,4]
+                result.get(result.size() - 1).set(1, Math.max(previousEnd, actualEnd)); // max because: [1,5] [2,4]
             } else {
-                result.add(Arrays.asList(new Integer[]{actualStart,actualEnd}));
+                result.add(Arrays.asList(new Integer[]{actualStart, actualEnd}));
             }
         }
 
         return result;
 
 
+    }
 
+    /**
+     * Non-Overlapping Intervals
+     * Count overlapping intervals
+     *
+     * @param intervals
+     * @return
+     */
+    public static int nonOverlappingIntervals(List<List<Integer>> intervals) {
+        if (intervals.size() < 2) {
+            return 0;
+        }
+        Collections.sort(intervals, Comparator.comparingInt(list -> list.get(0)));
+
+
+        int actualStart = 0;
+        int actualEnd = 0;
+        int previousEnd = intervals.get(0).get(1);
+        int result = 0;
+        for (int i = 1; i < intervals.size(); i++) {
+            actualStart = intervals.get(i).get(0);
+            actualEnd = intervals.get(i).get(1);
+
+            if (actualStart >= previousEnd) {
+                previousEnd = actualEnd;
+            } else {
+                result += 1;
+                previousEnd = Math.min(previousEnd, actualEnd);
+            }
+        }
+
+        return result;
     }
 }
