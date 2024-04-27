@@ -230,6 +230,11 @@ public class ArraysX {
         return result;
     }
 
+    /**
+     * First Missing Positive Number time O(n) space O(1)
+     * @param list
+     * @return first missing positive number
+     */
     public static int firstMissingPositive(int[] list) {
         // negative cant be the smallest positive, null out
         for (int i = 0; i < list.length; i++) {
