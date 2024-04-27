@@ -230,6 +230,33 @@ public class ArraysX {
         return result;
     }
 
+    public static int firstMissingPositive(int[] list) {
+        // negative cant be the smallest positive, null out
+        for (int i = 0; i < list.length; i++) {
+            if (list[i] < 0) {
+                list[i] = 0;
+            }
+        }
+        for (int i = 0; i < list.length; i++) {
+            int value = Math.abs(list[i]);
+            if (value >= 1 && value <= list.length) { // in the bound of the array index
+                if (list[value-1] > 0) { // we mark index for the number with minus
+                    list[value-1] = -1 * list[value-1];
+                } else if (list[value-1] == 0) { // if it is nulled out 0 then assign out of bound negative value
+                    list[value-1] = -1 * (list.length + 1);
+                }
+
+            }
+        }
+        for (int i = 1; i <= list.length; i++) {
+            if (list[i-1] >= 0 ) {
+                return i;
+            }
+        }
+
+        return list.length + 1;
+    }
+
     public static int maximumSubarray(int[] list) {
         int currentMax = 0;
         int max = 0;

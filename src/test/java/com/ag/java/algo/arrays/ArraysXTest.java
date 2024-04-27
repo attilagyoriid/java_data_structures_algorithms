@@ -241,4 +241,13 @@ class ArraysXTest {
 
         Assertions.assertEquals(1, ArraysX.nonOverlappingIntervals(intervals));
     }
+
+    @Test
+    void firstMissingPositive() {
+        Assertions.assertEquals(2,ArraysX.firstMissingPositive(new int[]{-3,4,1,-2,3}));
+    }
+    @Test
+    void firstMissingPositiveNotInList() {
+        Assertions.assertEquals(6,ArraysX.firstMissingPositive(new int[]{5,4,1,3,2}));
+    }
 }
