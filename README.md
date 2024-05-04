@@ -42,6 +42,7 @@ This section lists any major frameworks/libraries used to bootstrap project.
     - Two Sum
     - Find Duplicates
     - Missing Number
+    - Find All Numbers Disappeared in an Array
     - First Missing Positive
     - Maximum Subarray
     - Merge Intervals

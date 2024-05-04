@@ -233,6 +233,7 @@ public class ArraysX {
 
     /**
      * First Missing Positive Number time O(n) space O(1)
+     *
      * @param list
      * @return first missing positive number
      */
@@ -246,16 +247,16 @@ public class ArraysX {
         for (int i = 0; i < list.length; i++) {
             int value = Math.abs(list[i]);
             if (value >= 1 && value <= list.length) { // in the bound of the array index
-                if (list[value-1] > 0) { // we mark index for the number with minus
-                    list[value-1] = -1 * list[value-1];
-                } else if (list[value-1] == 0) { // if it is nulled out 0 then assign out of bound negative value
-                    list[value-1] = -1 * (list.length + 1);
+                if (list[value - 1] > 0) { // we mark index for the number with minus
+                    list[value - 1] = -1 * list[value - 1];
+                } else if (list[value - 1] == 0) { // if it is nulled out 0 then assign out of bound negative value
+                    list[value - 1] = -1 * (list.length + 1);
                 }
 
             }
         }
         for (int i = 1; i <= list.length; i++) {
-            if (list[i-1] >= 0 ) {
+            if (list[i - 1] >= 0) {
                 return i;
             }
         }
@@ -265,6 +266,7 @@ public class ArraysX {
 
     /**
      * Missing Number
+     *
      * @param numbers
      * @return the missing number in the array or n + 1
      */
@@ -280,12 +282,37 @@ public class ArraysX {
     public static int missingNumber2(int[] numbers) {
         int result = numbers.length;
         for (int i = 0; i < numbers.length; i++) {
-            result += (i-numbers[i]);
+            result += (i - numbers[i]);
         }
         if (result == 0) {
             return numbers.length;
         }
         return result;
+    }
+
+    /**
+     * Find All Numbers Disappeared in an Array
+     *
+     * @param numbers
+     * @return array of missing numbers
+     */
+    public static List<Integer> findAllNumbersDisappearedInArray(List<Integer> numbers) {
+        ArrayList<Integer> result = new ArrayList<>();
+        int currentIndex;
+        for (Integer num : numbers) {
+            currentIndex = Math.abs(num) - 1;
+            numbers.set(currentIndex, -1 * Math.abs(numbers.get(currentIndex)));
+
+        }
+        for (int i = 0; i < numbers.size(); i++) {
+            if (numbers.get(i) > 0) {
+                result.add(i+1);
+            }
+        }
+
+
+        return result;
+
     }
 
     public static int maximumSubarray(int[] list) {

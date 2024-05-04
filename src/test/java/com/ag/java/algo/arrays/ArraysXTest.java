@@ -272,4 +272,9 @@ class ArraysXTest {
         Assertions.assertEquals(4, ArraysX.missingNumber2(new int[]{2, 0, 1, 3}));
 
     }
+
+    @Test
+    void findAllNumbersDisappearedInArray() {
+        Assertions.assertIterableEquals(Arrays.asList(2,4), ArraysX.findAllNumbersDisappearedInArray(Arrays.asList(3,1,1,3)));
+    }
 }
