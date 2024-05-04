@@ -2,6 +2,7 @@ package com.ag.java.algo.arrays;
 
 import java.security.InvalidParameterException;
 import java.util.*;
+import java.util.stream.IntStream;
 
 public class ArraysX {
 
@@ -260,6 +261,20 @@ public class ArraysX {
         }
 
         return list.length + 1;
+    }
+
+    /**
+     * Missing Number
+     * @param numbers
+     * @return the missing number in the array or n + 1
+     */
+    public static int missingNumber(int[] numbers) {
+        int[] expectedArray = IntStream.rangeClosed(0, numbers.length).toArray();
+        int result = Arrays.stream(expectedArray).sum() - Arrays.stream(numbers).sum();
+        if (result == 0) {
+            return numbers.length;
+        }
+        return result;
     }
 
     public static int maximumSubarray(int[] list) {

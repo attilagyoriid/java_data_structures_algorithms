@@ -250,4 +250,16 @@ class ArraysXTest {
     void firstMissingPositiveNotInList() {
         Assertions.assertEquals(6,ArraysX.firstMissingPositive(new int[]{5,4,1,3,2}));
     }
+
+    @Test
+    void missingNumber() {
+        Assertions.assertEquals(2, ArraysX.missingNumber(new int[]{0, 1, 3}));
+
+    }
+    @Test
+    void missingNumber_no_missing() {
+        Assertions.assertEquals(4, ArraysX.missingNumber(new int[]{2, 0, 1, 3}));
+
+    }
+
 }

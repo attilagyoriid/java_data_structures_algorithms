@@ -41,6 +41,7 @@ This section lists any major frameworks/libraries used to bootstrap project.
     - Best Time to Buy and Sell Stock
     - Two Sum
     - Find Duplicates
+    - Missing Number
     - First Missing Positive
     - Maximum Subarray
     - Merge Intervals
