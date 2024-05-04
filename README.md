@@ -58,6 +58,8 @@ This section lists any major frameworks/libraries used to bootstrap project.
   - Longest Substring Without Repeating Characters
   - Valid Anagrams
   - Group anagrams
+- Number
+  - Palindrome Number
 - Sort
   - Bubble Sort
   - Insertion Sort
