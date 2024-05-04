@@ -277,6 +277,17 @@ public class ArraysX {
         return result;
     }
 
+    public static int missingNumber2(int[] numbers) {
+        int result = numbers.length;
+        for (int i = 0; i < numbers.length; i++) {
+            result += (i-numbers[i]);
+        }
+        if (result == 0) {
+            return numbers.length;
+        }
+        return result;
+    }
+
     public static int maximumSubarray(int[] list) {
         int currentMax = 0;
         int max = 0;

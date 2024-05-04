@@ -262,4 +262,14 @@ class ArraysXTest {
 
     }
 
+    @Test
+    void missingNumber2() {
+        Assertions.assertEquals(2, ArraysX.missingNumber2(new int[]{0, 1, 3}));
+    }
+
+    @Test
+    void missingNumber2_no_missing() {
+        Assertions.assertEquals(4, ArraysX.missingNumber2(new int[]{2, 0, 1, 3}));
+
+    }
 }
