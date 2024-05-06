@@ -83,4 +83,32 @@ class StringXTest {
         List<List<String>> expectedList = List.of(List.of("tan","nat"), List.of("bat"), List.of("eat", "tea", "ate"));
         Assertions.assertIterableEquals(expectedList, StringX.groupAnagrams(list));
       }
+
+    @Test
+    void isValidAnagramByCounter() {
+        String text1 = "aabbccbeef";
+        String text2 = "bacabcebef";
+        Assertions.assertTrue(StringX.isValidAnagramByCounter(text1,text2));
+    }
+
+    @Test
+    void isValidAnagramByCounter_not_anagram_fail() {
+        String text1 = "aabbccbef";
+        String text2 = "bacacebef";
+        Assertions.assertFalse(StringX.isValidAnagramByCounter(text1,text2));
+    }
+
+    @Test
+    void isValidAnagramBySort() {
+        String text1 = "aabbccbeef";
+        String text2 = "bacabcebef";
+        Assertions.assertTrue(StringX.isValidAnagramBySort(text1,text2));
+    }
+
+    @Test
+    void isValidAnagramBySort_not_anagram_fail() {
+        String text1 = "aabbccbef";
+        String text2 = "bacacebef";
+        Assertions.assertFalse(StringX.isValidAnagramBySort(text1,text2));
+    }
 }

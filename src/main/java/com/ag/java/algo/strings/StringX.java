@@ -1,6 +1,8 @@
 package com.ag.java.algo.strings;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class StringX {
 
@@ -144,6 +146,44 @@ public class StringX {
         }
 
         return true;
+
+    }
+
+    /**
+     * Valid Anagram for text1 and text2 using grouping
+     * @param text1
+     * @param text2
+     * @return true if they are valid anagrams
+     */
+    public static boolean isValidAnagramByCounter(String text1, String text2) {
+        if (text1.length() != text2.length()) {
+            return false;
+        }
+        Map<String, Long> text1Counter = Arrays.stream(text1.split("")).map(String::toLowerCase).collect(Collectors.groupingBy(s -> s, LinkedHashMap::new, Collectors.counting()));
+        Map<String, Long> text2Counter = Arrays.stream(text2.split("")).map(String::toLowerCase).collect(Collectors.groupingBy(s -> s, LinkedHashMap::new, Collectors.counting()));
+
+        return text1Counter.equals(text2Counter);
+
+    }
+
+    /**
+     * Valid Anagram for text1 and text2 using sort
+     * @param text1
+     * @param text2
+     * @return true if they are valid anagrams
+     */
+    public static boolean isValidAnagramBySort(String text1, String text2) {
+        if (text1.length() != text2.length()) {
+            return false;
+        }
+        String sortedText1 = Stream.of( text1.split("") )
+                .sorted()
+                .collect(Collectors.joining());
+        String sortedText2 = Stream.of( text2.split("") )
+                .sorted()
+                .collect(Collectors.joining());
+
+        return sortedText1.equals(sortedText2);
 
     }
 

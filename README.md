@@ -59,6 +59,8 @@ This section lists any major frameworks/libraries used to bootstrap project.
   - Max character: character with the highest occurrence in a string
   - Longest Substring Without Repeating Characters
   - Valid Anagrams
+    - Is Valid Anagram By Sort
+    - Is Valid Anagram By Counter
   - Group anagrams
 - Number
   - Palindrome Number
