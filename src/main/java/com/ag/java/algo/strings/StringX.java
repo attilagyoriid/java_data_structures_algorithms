@@ -123,6 +123,7 @@ public class StringX {
 
     /**
      * Valid Anagram for text1 and text2
+     *
      * @param text1
      * @param text2
      * @return true if they are valid anagrams
@@ -151,6 +152,7 @@ public class StringX {
 
     /**
      * Valid Anagram for text1 and text2 using grouping
+     *
      * @param text1
      * @param text2
      * @return true if they are valid anagrams
@@ -168,6 +170,7 @@ public class StringX {
 
     /**
      * Valid Anagram for text1 and text2 using sort
+     *
      * @param text1
      * @param text2
      * @return true if they are valid anagrams
@@ -176,10 +179,10 @@ public class StringX {
         if (text1.length() != text2.length()) {
             return false;
         }
-        String sortedText1 = Stream.of( text1.split("") )
+        String sortedText1 = Stream.of(text1.split(""))
                 .sorted()
                 .collect(Collectors.joining());
-        String sortedText2 = Stream.of( text2.split("") )
+        String sortedText2 = Stream.of(text2.split(""))
                 .sorted()
                 .collect(Collectors.joining());
 
@@ -189,18 +192,19 @@ public class StringX {
 
     /**
      * Group anagrams
+     *
      * @param list
      * @return
      */
     public static List<List<String>> groupAnagrams(String[] list) {
-        Map<Map<Character,Integer>, List<String>> anagramMap = new HashMap<>();
+        Map<Map<Character, Integer>, List<String>> anagramMap = new HashMap<>();
 
-        for(String text:list) {
-            Map<Character,Integer> currentMap = new HashMap<>();
-            for (char c: text.toCharArray()) {
+        for (String text : list) {
+            Map<Character, Integer> currentMap = new HashMap<>();
+            for (char c : text.toCharArray()) {
                 Integer currentCount = currentMap.getOrDefault(c, 0);
                 currentCount += 1;
-                currentMap.put(c,currentCount);
+                currentMap.put(c, currentCount);
             }
             if (anagramMap.containsKey(currentMap)) {
                 anagramMap.get(currentMap).add(text);
@@ -212,5 +216,49 @@ public class StringX {
         }
 
         return new ArrayList<>(anagramMap.values());
+    }
+
+    /**
+     * Find All Anagrams in a String
+     * @param text
+     * @param anagram
+     * @return list of indexes where anagram starts
+     */
+    public static List<Integer> findAllAnagramsInString(String text, String anagram) {
+
+        List<Integer> result = new ArrayList<>();
+        if (text == null || anagram == null || text.length()<anagram.length() || text.length() == 0) {
+            return result;
+        }
+        Map<Character, Integer> anagramMap = getAnagramMapBySubstring(anagram, 0, anagram.length()-1);
+        Map<Character, Integer> actualAnagramMap;
+
+        int left = 0;
+        int right = anagram.length() - 1;
+
+
+        while (right < text.length()) {
+
+            actualAnagramMap = getAnagramMapBySubstring(text, left, right);
+            if (actualAnagramMap.equals(anagramMap)) {
+                result.add(left);
+            }
+            left++;
+            right++;
+
+
+        }
+
+        return result;
+    }
+
+    private static Map<Character, Integer> getAnagramMapBySubstring(String text, int startIndex, int endIndex) {
+        String anagram = text.substring(startIndex, endIndex + 1);
+        Map<Character, Integer> anagramMap = new HashMap<>();
+        for (Character a : anagram.toCharArray()) {
+                anagramMap.put(a, anagramMap.getOrDefault(a,0) + 1);
+        }
+
+        return anagramMap;
     }
 }

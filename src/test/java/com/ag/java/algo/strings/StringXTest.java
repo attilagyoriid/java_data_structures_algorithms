@@ -4,6 +4,7 @@ import com.ag.java.algo.strings.StringX;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
 class StringXTest {
@@ -110,5 +111,29 @@ class StringXTest {
         String text1 = "aabbccbef";
         String text2 = "bacacebef";
         Assertions.assertFalse(StringX.isValidAnagramBySort(text1,text2));
+    }
+
+    @Test
+    void findAllAnagramsInString() {
+        List<Integer> expectedResult = Arrays.asList(0, 6);
+        Assertions.assertIterableEquals(expectedResult, StringX.findAllAnagramsInString("cbaebabacd", "abc"));
+    }
+
+    @Test
+    void findAllAnagramsInString_2() {
+        List<Integer> expectedResult = Arrays.asList(2);
+        Assertions.assertIterableEquals(expectedResult, StringX.findAllAnagramsInString("ebcbaafac", "abc"));
+    }
+
+    @Test
+    void findAllAnagramsInString_empty() {
+        List<Integer> expectedResult = List.of();
+        Assertions.assertIterableEquals(expectedResult, StringX.findAllAnagramsInString("", ""));
+    }
+
+    @Test
+    void findAllAnagramsInString_length_not_met() {
+        List<Integer> expectedResult = List.of();
+        Assertions.assertIterableEquals(expectedResult, StringX.findAllAnagramsInString("aa", "aaa"));
     }
 }

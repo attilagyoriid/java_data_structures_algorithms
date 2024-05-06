@@ -61,6 +61,7 @@ This section lists any major frameworks/libraries used to bootstrap project.
   - Valid Anagrams
     - Is Valid Anagram By Sort
     - Is Valid Anagram By Counter
+  - Find All Anagrams in a String
   - Group anagrams
 - Number
   - Palindrome Number
