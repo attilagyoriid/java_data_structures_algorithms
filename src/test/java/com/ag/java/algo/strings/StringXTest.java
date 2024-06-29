@@ -1,6 +1,5 @@
 package com.ag.java.algo.strings;
 
-import com.ag.java.algo.strings.StringX;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -42,6 +41,18 @@ class StringXTest {
     @Test
     void isValidParenthesis_notValidParenthesis() {
         var parenthesis = List.of('{','{', '}','[',']',']','[','}');
+        Assertions.assertFalse(StringX.isValidParenthesis(parenthesis));
+    }
+
+    @Test
+    void isValidParenthesis_notValidParenthesis_one_closing() {
+        var parenthesis = List.of('{');
+        Assertions.assertFalse(StringX.isValidParenthesis(parenthesis));
+    }
+
+    @Test
+    void isValidParenthesis_notValidParenthesis_one_opening() {
+        var parenthesis = List.of( '}');
         Assertions.assertFalse(StringX.isValidParenthesis(parenthesis));
     }
 
@@ -135,5 +146,19 @@ class StringXTest {
     void findAllAnagramsInString_length_not_met() {
         List<Integer> expectedResult = List.of();
         Assertions.assertIterableEquals(expectedResult, StringX.findAllAnagramsInString("aa", "aaa"));
+    }
+
+    @Test
+    void palindromicSubString_odd() {
+        var expected = 7;
+        var s = "abacc";
+        Assertions.assertEquals(expected, StringX.palindromicSubString(s));
+    }
+
+    @Test
+    void palindromicSubString_even() {
+        var expected = 5;
+        var s = "abac";
+        Assertions.assertEquals(expected, StringX.palindromicSubString(s));
     }
 }

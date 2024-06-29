@@ -55,6 +55,7 @@ This section lists any major frameworks/libraries used to bootstrap project.
   - Remove
 - String
   - Valid Palindrome
+  - Palindromic Substrings
   - Is Valid Parenthesis
   - Max character: character with the highest occurrence in a string
   - Longest Substring Without Repeating Characters

@@ -35,6 +35,40 @@ public class StringX {
         return true;
     }
 
+    /**
+     * Palindromic Substrings
+     * time O(n2)
+     * space O(1)
+     *
+     * @param s text in which it looks for palindromic substring
+     * @return number of palindromic substring
+     */
+    public static int palindromicSubString(String s) {
+        var result = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+
+            int l = i, r = i; // odd number of characters
+            while (l >= 0 && r < s.length() && s.toCharArray()[l] == s.toCharArray()[r]) {
+                result++;
+                l--;
+                r++;
+            }
+            l = i;
+            r = i + 1; // even number of characters
+            while (l >= 0 && r < s.length() && s.toCharArray()[l] == s.toCharArray()[r]) {
+                result++;
+                l--;
+                r++;
+            }
+
+
+        }
+
+        return result;
+
+    }
+
     public static boolean isValidParenthesis(List<Character> parenthesis) {
 
         var parenthesisPairs = Map.of('{', '}', '[', ']', '(', ')');
@@ -44,11 +78,11 @@ public class StringX {
         Stack<Character> stack = new Stack<>();
 
         for (int i = 0; i < parenthesis.size(); i++) {
-            Character currentP = parenthesis.get(i);
-            if (parenthesisPairs.containsKey(currentP)) {
-                stack.push(parenthesisPairs.get(currentP));
-            } else {
-                if (!currentP.equals(stack.pop())) {
+            Character currentP = parenthesis.get(i); // get the first p
+            if (parenthesisPairs.containsKey(currentP)) { // is it an opening p
+                stack.push(parenthesisPairs.get(currentP)); // put the corresponding closing in the stack
+            } else { // it is a closing p
+                if (stack.isEmpty() || !currentP.equals(stack.pop())) { // current closing should have a corresponding closing on the top of the stack
                     return false;
                 }
             }
@@ -220,6 +254,7 @@ public class StringX {
 
     /**
      * Find All Anagrams in a String
+     *
      * @param text
      * @param anagram
      * @return list of indexes where anagram starts
@@ -227,10 +262,10 @@ public class StringX {
     public static List<Integer> findAllAnagramsInString(String text, String anagram) {
 
         List<Integer> result = new ArrayList<>();
-        if (text == null || anagram == null || text.length()<anagram.length() || text.length() == 0) {
+        if (text == null || anagram == null || text.length() < anagram.length() || text.length() == 0) {
             return result;
         }
-        Map<Character, Integer> anagramMap = getAnagramMapBySubstring(anagram, 0, anagram.length()-1);
+        Map<Character, Integer> anagramMap = getAnagramMapBySubstring(anagram, 0, anagram.length() - 1);
         Map<Character, Integer> actualAnagramMap;
 
         int left = 0;
@@ -256,7 +291,7 @@ public class StringX {
         String anagram = text.substring(startIndex, endIndex + 1);
         Map<Character, Integer> anagramMap = new HashMap<>();
         for (Character a : anagram.toCharArray()) {
-                anagramMap.put(a, anagramMap.getOrDefault(a,0) + 1);
+            anagramMap.put(a, anagramMap.getOrDefault(a, 0) + 1);
         }
 
         return anagramMap;
