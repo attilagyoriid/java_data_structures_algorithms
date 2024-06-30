@@ -297,9 +297,9 @@ class ArraysXTest {
         newInterval.add(8);
 
         List<List<Integer>> expectedIntervals = new ArrayList<>();
-        intervals.add(Arrays.asList(new Integer[] { 1,2 }));
-        intervals.add(Arrays.asList(new Integer[] {3,10 }));
-        intervals.add(Arrays.asList(new Integer[] { 12,16}));
+        expectedIntervals.add(Arrays.asList(new Integer[] { 1,2 }));
+        expectedIntervals.add(Arrays.asList(new Integer[] {3,10 }));
+        expectedIntervals.add(Arrays.asList(new Integer[] { 12,16}));
 
 
         Assertions.assertIterableEquals(expectedIntervals, ArraysX.insertInterval(intervals, newInterval));

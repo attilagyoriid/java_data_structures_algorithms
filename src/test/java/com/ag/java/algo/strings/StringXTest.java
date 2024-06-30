@@ -76,6 +76,13 @@ class StringXTest {
     }
 
     @Test
+    void isValidAnagramMap() {
+        String text1 = "aabbccbeef";
+        String text2 = "bacabcebef";
+        Assertions.assertTrue(StringX.isValidAnagramByMap(text1, text2));
+    }
+
+    @Test
     void isValidAnagram_length_differ_fail() {
         String text1 = "aabbccbeef";
         String text2 = "bacabcebe";
@@ -173,5 +180,17 @@ class StringXTest {
         var s = "abcbff";
         var expected = "bcb";
         Assertions.assertEquals(expected, StringX.longestPalindromicSubString(s));
+    }
+
+    @Test
+    void isValidPalindromeWord() {
+        var s = "abba";
+        Assertions.assertTrue(StringX.isValidPalindromeWord(s));
+    }
+
+    @Test
+    void isValidPalindromeWord_fail() {
+        var s = "abbaa";
+        Assertions.assertFalse(StringX.isValidPalindromeWord(s));
     }
 }

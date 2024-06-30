@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 public class StringX {
 
     /**
-     * Valid Palindrome
+     * Valid Palindrome text
      */
 
     public static boolean isValidPalindrome(String text) {
@@ -36,6 +36,29 @@ public class StringX {
     }
 
     /**
+     * Valid Palindrome word
+     *
+     * @param word
+     * @return true if palindrome
+     */
+    public static boolean isValidPalindromeWord(String word) {
+        int left = 0;
+        int right = word.length() - 1;
+        char[] charArray = word.toCharArray();
+
+        while (left < right) {
+            if (Character.toLowerCase(charArray[left]) != Character.toLowerCase(charArray[right])) {
+                return false;
+            }
+            left++;
+            right--;
+
+        }
+
+        return true;
+    }
+
+    /**
      * All Palindromic Substrings
      * time O(n2)
      * space O(1)
@@ -50,7 +73,7 @@ public class StringX {
 
             int l = i, r = i; // odd number of characters
 
-            while (l >= 0 && r < s.length() && charArray[l] == charArray[r]) {
+            while (l >= 0 && r < s.length() && charArray[l] == charArray[r]) { // extract to private method and return result
                 result++;
                 l--;
                 r++;
@@ -84,8 +107,6 @@ public class StringX {
                 left--;
                 right++;
             }
-
-
             left = i; // even length
             right = i + 1;
             while (left >= 0 && right < s.length() && Character.toLowerCase(charArray[left]) == Character.toLowerCase(charArray[right])) {
@@ -95,8 +116,6 @@ public class StringX {
                 left--;
                 right++;
             }
-
-
         }
         return result;
     }
@@ -203,7 +222,6 @@ public class StringX {
             chars[text1.charAt(i) - 'a']++;
             chars[text2.charAt(i) - 'a']--;
         }
-
         for (int c : chars) {
 
             if (c != 0) {
@@ -211,9 +229,30 @@ public class StringX {
             }
 
         }
-
         return true;
+    }
 
+    public static boolean isValidAnagramByMap(String text1, String text2) {
+        if (text1.length() != text2.length()) {
+            return false;
+        }
+        Map<Character, Integer> map = new HashMap<>(); // or we can create 2 maps and fill in one loop both of them and compare the values by character
+//      return map.equals(map2);
+        for (char c : text1.toCharArray()) {
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        }
+        for (char c : text2.toCharArray()) {
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        }
+
+
+        for (int i : map.values()) {
+
+            if (i != 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -262,8 +301,10 @@ public class StringX {
      * @param list
      * @return
      */
-    public static List<List<String>> groupAnagrams(String[] list) {
+    public static List<List<String>> groupAnagrams(String[] list) { // time complexity O(m * nlogn) if we sort
+        // Time Complexity is O (m * n)
         Map<Map<Character, Integer>, List<String>> anagramMap = new HashMap<>();
+        // we collect same anagrams by map as a key
 
         for (String text : list) {
             Map<Character, Integer> currentMap = new HashMap<>();
@@ -292,17 +333,15 @@ public class StringX {
      * @return list of indexes where anagram starts
      */
     public static List<Integer> findAllAnagramsInString(String text, String anagram) {
-
         List<Integer> result = new ArrayList<>();
         if (text == null || anagram == null || text.length() < anagram.length() || text.length() == 0) {
             return result;
         }
-        Map<Character, Integer> anagramMap = getAnagramMapBySubstring(anagram, 0, anagram.length() - 1);
+        Map<Character, Integer> anagramMap = getAnagramMapBySubstring(anagram, 0, anagram.length() - 1); // map for anagram
         Map<Character, Integer> actualAnagramMap;
 
         int left = 0;
-        int right = anagram.length() - 1;
-
+        int right = anagram.length() - 1; // length of the anagram
 
         while (right < text.length()) {
 
@@ -312,8 +351,6 @@ public class StringX {
             }
             left++;
             right++;
-
-
         }
 
         return result;
@@ -321,7 +358,7 @@ public class StringX {
 
     private static Map<Character, Integer> getAnagramMapBySubstring(String text, int startIndex, int endIndex) {
         String anagram = text.substring(startIndex, endIndex + 1);
-        Map<Character, Integer> anagramMap = new HashMap<>();
+        Map<Character, Integer> anagramMap = new HashMap<>(); // we can pass the original map and remove or decrement the left one
         for (Character a : anagram.toCharArray()) {
             anagramMap.put(a, anagramMap.getOrDefault(a, 0) + 1);
         }

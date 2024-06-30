@@ -384,6 +384,7 @@ public class ArraysX {
         if (intervals.size() < 2) {
             return intervals;
         }
+        // sort intervals by start value
         Collections.sort(intervals, Comparator.comparingInt(list -> list.get(0)));
 
 
@@ -397,10 +398,13 @@ public class ArraysX {
             actualEnd = intervals.get(i).get(1);
             previousEnd = result.get(result.size() - 1).get(1);
 
+            // overlapping previous end is greater or equal to new interval start,
+            // keep the previous interval start value and
+            // update previous interval end value
             if (previousEnd >= actualStart) {
-                result.get(result.size() - 1).set(1, Math.max(previousEnd, actualEnd)); // max because: [1,5] [2,4]
+                result.get(result.size() - 1).set(1, Math.max(previousEnd, actualEnd)); // max because: [1,5] [2,4] we want to keep 5
             } else {
-                result.add(Arrays.asList(new Integer[]{actualStart, actualEnd}));
+                result.add(Arrays.asList(actualStart, actualEnd));
             }
         }
 
@@ -420,7 +424,8 @@ public class ArraysX {
         if (intervals.size() < 2) {
             return 0;
         }
-        Collections.sort(intervals, Comparator.comparingInt(list -> list.get(0)));
+        // sort intervals by starting points
+        Collections.sort(intervals, Comparator.comparingInt(list -> list.get(0))); // time complexity is O(nlog), below is O(n) so entire is O(nlogn)
 
 
         int actualStart = 0;
@@ -430,11 +435,12 @@ public class ArraysX {
         for (int i = 1; i < intervals.size(); i++) {
             actualStart = intervals.get(i).get(0);
             actualEnd = intervals.get(i).get(1);
-
+            // actual interval starts after the previous ends then its not overlapping
             if (actualStart >= previousEnd) {
                 previousEnd = actualEnd;
             } else {
                 result += 1;
+                // we keep the interval with smaller end value cause there is less chance for it to be overlapping
                 previousEnd = Math.min(previousEnd, actualEnd);
             }
         }
@@ -453,13 +459,21 @@ public class ArraysX {
         List<List<Integer>> result = new ArrayList<>();
 
         for (int i = 0; i < intervals.size(); i++) {
-            if (newInterval.get(1) < intervals.get(i).get(0)) { // if the new interval last element smaller than the first element of the actual element of the interval, there will be no other overlapping, new interval added and the rest of the interval
+            // if the new interval last element smaller than the first element of
+            // the actual element of the interval, there will be no other overlapping,
+            // new interval added and the rest of the interval
+            if (newInterval.get(1) < intervals.get(i).get(0)) {
                 result.add(newInterval);
                 result.addAll(intervals.subList(i, intervals.size()));
                 return result;
-            } else if (newInterval.get(0) > intervals.get(i).get(1)) { // if the first element of the new interval is greater than the last element of the actual element of the interval, no overlapping so actual element added to the result
+                // if the first element of the new interval is greater than the last element of
+                // the actual element of the interval, actual element can be added,
+                // but there could have overlapping with other intervals
+            } else if (newInterval.get(0) > intervals.get(i).get(1)) {
                 result.add(intervals.get(i));
-            } else { // if non of them then there is an overlapping so new interval must be extended
+            } else {
+                // if non of them then there is an overlapping with the current interval,
+                // so new interval must be extended
                 newInterval = Arrays.asList(Math.min(intervals.get(i).get(0), newInterval.get(0)), Math.max(intervals.get(i).get(1), newInterval.get(1)));
             }
 
@@ -468,4 +482,5 @@ public class ArraysX {
         result.add(newInterval);
         return result;
     }
+
 }
