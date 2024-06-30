@@ -66,6 +66,7 @@ This section lists any major frameworks/libraries used to bootstrap project.
   - Group anagrams
 - Number
   - Palindrome Number
+  - Reverse Number
 - Sort
   - Bubble Sort
   - Insertion Sort

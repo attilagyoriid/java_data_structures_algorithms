@@ -30,4 +30,12 @@ class NumberXTest {
         Assertions.assertFalse(NumberX.isPalindromicNumber(142341));
     }
 
+    @Test
+    void reverseNumber_pass_1() {
+        Assertions.assertEquals(12345, NumberX.reverseNumber(54321));
+    }
+    @Test
+    void reverseNumber_pass_2() {
+        Assertions.assertEquals(1, NumberX.reverseNumber(1));
+    }
 }

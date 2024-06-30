@@ -35,4 +35,37 @@ public class NumberX {
         }
         return true;
     }
+
+
+    /**
+     * Reverse Integer number
+     * @param number the number to reverse
+     * @return reversed number
+     */
+    public static int reverseNumber (int number) {
+        int result = 0;
+        // negative always false
+        if (number < 0) {
+            return 0;
+        }
+        // count the digits
+        int div = 1;
+        while (number >= 10 * div) {
+            div *= 10;
+        }
+
+        int right;
+        while (div > 0) {
+            // get right digit
+            right = number % 10;
+            // multiply right digit with decimal places
+            result = result + (right * div);
+            // chop off right digit
+            number = number / 10;
+            // decrease divider by one digit
+            div /= 10;
+
+        }
+        return result;
+    }
 }
