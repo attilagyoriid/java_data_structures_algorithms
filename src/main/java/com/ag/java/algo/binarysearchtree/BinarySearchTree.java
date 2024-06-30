@@ -67,13 +67,14 @@ public class BinarySearchTree {
                 Node currentRoot = queue.remove();
                 if (currentRoot != null) {
                     result.add(currentRoot.getValue());
+                    if (currentRoot.getLeft()!=null) {
+                        queue.add(currentRoot.getLeft());
+                    }
+                    if (currentRoot.getRight()!=null) {
+                        queue.add(currentRoot.getRight());
+                    }
                 }
-                if (currentRoot.getLeft()!=null) {
-                    queue.add(currentRoot.getLeft());
-                }
-                if (currentRoot.getRight()!=null) {
-                    queue.add(currentRoot.getRight());
-                }
+
             }
         }
 
