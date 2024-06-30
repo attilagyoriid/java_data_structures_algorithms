@@ -71,10 +71,54 @@ public class NumberX {
         return result;
     }
 
-    public static int factorial(int nth) {
+    public static int factorial(int n) {
+        int result = 1, i = 1;
+        if (n==0) {
+            return 1;
+        }
+        for (i = 1; i <= n; i++) {
+            result *= i;
+        }
+        return result;
+    }
+
+    public static int factorialRecursive(int nth) {
         if (nth == 0) {
             return 1;
         }
-        return nth * factorial(nth - 1);
+        return nth * factorialRecursive(nth - 1);
+    }
+
+    //0, 1, 1, 2, 3, 5, 8,
+    public static int[] fibonacci(int n) {
+        int a = 0, b = 1, c;
+        int[] result = new int[n];
+        result[0] = a;
+        result[1] = b;
+        for (int i = 2; i < n; i++) {
+            c = a + b;
+            result[i] = c;
+            a = b;
+            b = c;
+
+        }
+        return result;
+    }
+
+    public static int fibonacciRecursive(int n) {
+        if (n <= 1) {
+            return n;
+        }
+        return fibonacciRecursive(n - 1) + fibonacciRecursive(n - 2);
+    }
+
+    public static int[] fibonacciListWithRecursive(int n) {
+        int[] result = new int[n];
+        for (int i = 0; i < n; i++) {
+            result[i] = fibonacciRecursive(i);
+        }
+        return result;
     }
 }
+    
+

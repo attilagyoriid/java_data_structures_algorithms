@@ -68,6 +68,7 @@ This section lists any major frameworks/libraries used to bootstrap project.
   - Palindrome Number
   - Reverse Number
   - Factorial
+  - Fibonacci
 - Sort
   - Bubble Sort
   - Insertion Sort
