@@ -256,6 +256,11 @@ class ArraysXTest {
         Assertions.assertEquals(2, ArraysX.missingNumber(new int[]{0, 1, 3}));
 
     }
+
+    @Test
+    void missingNumberXOR() {
+        Assertions.assertEquals(2, ArraysX.missingNumberXOR(new int[]{0, 1, 3}));
+    }
     @Test
     void missingNumber_no_missing() {
         Assertions.assertEquals(4, ArraysX.missingNumber(new int[]{2, 0, 1, 3}));
@@ -277,4 +282,29 @@ class ArraysXTest {
     void findAllNumbersDisappearedInArray() {
         Assertions.assertIterableEquals(Arrays.asList(2,4), ArraysX.findAllNumbersDisappearedInArray(Arrays.asList(3,1,1,3)));
     }
+
+    @Test
+    void insertInterval() {
+        List<List<Integer>> intervals = new ArrayList<>();
+        intervals.add(Arrays.asList(new Integer[] { 1,2 }));
+        intervals.add(Arrays.asList(new Integer[] {3,5 }));
+        intervals.add(Arrays.asList(new Integer[] { 6,7}));
+        intervals.add(Arrays.asList(new Integer[] { 8,10}));
+        intervals.add(Arrays.asList(new Integer[] { 12,16}));
+
+        List<Integer> newInterval = new ArrayList<>();
+        newInterval.add(4);
+        newInterval.add(8);
+
+        List<List<Integer>> expectedIntervals = new ArrayList<>();
+        intervals.add(Arrays.asList(new Integer[] { 1,2 }));
+        intervals.add(Arrays.asList(new Integer[] {3,10 }));
+        intervals.add(Arrays.asList(new Integer[] { 12,16}));
+
+
+        Assertions.assertIterableEquals(expectedIntervals, ArraysX.insertInterval(intervals, newInterval));
+
+    }
+
+
 }

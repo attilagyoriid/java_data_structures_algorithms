@@ -279,6 +279,19 @@ public class ArraysX {
         return result;
     }
 
+    public static int missingNumberXOR(int[] numbers) {
+        int[] expectedArray = IntStream.rangeClosed(0, numbers.length).toArray();
+        int result = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            result = result ^ numbers[i] ^ expectedArray[i];
+        }
+        result = result ^ expectedArray[numbers.length];
+        if (result == 0) {
+            return numbers.length;
+        }
+        return result;
+    }
+
     public static int missingNumber2(int[] numbers) {
         int result = numbers.length;
         for (int i = 0; i < numbers.length; i++) {
@@ -306,7 +319,7 @@ public class ArraysX {
         }
         for (int i = 0; i < numbers.size(); i++) {
             if (numbers.get(i) > 0) {
-                result.add(i+1);
+                result.add(i + 1);
             }
         }
 
@@ -428,6 +441,33 @@ public class ArraysX {
             }
         }
 
+        return result;
+    }
+
+    /**
+     * Insert Interval
+     *
+     * @param intervals
+     * @param newInterval
+     * @return intervals with merged new interval
+     */
+    public static List<List<Integer>> insertInterval(List<List<Integer>> intervals, List<Integer> newInterval) {
+        List<List<Integer>> result = new ArrayList<>();
+
+        for (int i = 0; i < intervals.size(); i++) {
+            if (newInterval.get(1) < intervals.get(i).get(0)) { // if the new interval last element smaller than the first element of the actual element of the interval, there will be no other overlapping, new interval added and the rest of the interval
+                result.add(newInterval);
+                result.addAll(intervals.subList(i, intervals.size()));
+                return result;
+            } else if (newInterval.get(0) > intervals.get(i).get(1)) { // if the first element of the new interval is greater than the last element of the actual element of the interval, no overlapping so actual element added to the result
+                result.add(intervals.get(i));
+            } else { // if non of them then there is an overlapping so new interval must be extended
+                newInterval = Arrays.asList(Math.min(intervals.get(i).get(0), newInterval.get(0)), Math.max(intervals.get(i).get(1), newInterval.get(1)));
+            }
+
+        }
+        // there was no overlapping, new interval added at the end of the result
+        result.add(newInterval);
         return result;
     }
 }
