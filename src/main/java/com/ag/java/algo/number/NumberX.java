@@ -4,10 +4,11 @@ public class NumberX {
 
     /**
      * Palindrome Number
+     *
      * @param number
      * @return true if palindrome
      */
-    public static  boolean isPalindromicNumber (int number) {
+    public static boolean isPalindromicNumber(int number) {
         // negative always false
         if (number < 0 || number % 10 == 0) {
             return false;
@@ -39,10 +40,11 @@ public class NumberX {
 
     /**
      * Reverse Integer number
+     *
      * @param number the number to reverse
      * @return reversed number
      */
-    public static int reverseNumber (int number) {
+    public static int reverseNumber(int number) {
         int result = 0;
         // negative always false
         if (number < 0) {
@@ -67,5 +69,12 @@ public class NumberX {
 
         }
         return result;
+    }
+
+    public static int factorial(int nth) {
+        if (nth == 0) {
+            return 1;
+        }
+        return nth * factorial(nth - 1);
     }
 }

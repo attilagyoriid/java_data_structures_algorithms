@@ -38,4 +38,9 @@ class NumberXTest {
     void reverseNumber_pass_2() {
         Assertions.assertEquals(1, NumberX.reverseNumber(1));
     }
+
+    @Test
+    void factorial() {
+        Assertions.assertEquals(120, NumberX.factorial(5));
+    }
 }
