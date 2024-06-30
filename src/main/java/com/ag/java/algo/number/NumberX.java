@@ -9,7 +9,7 @@ public class NumberX {
      */
     public static  boolean isPalindromicNumber (int number) {
         // negative always false
-        if (number < 0) {
+        if (number < 0 || number % 10 == 0) {
             return false;
         }
         // count the digits
