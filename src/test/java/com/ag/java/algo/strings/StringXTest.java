@@ -22,25 +22,25 @@ class StringXTest {
 
     @Test
     void isValidParenthesis() {
-        var parenthesis = List.of('{','[',']','}');
+        var parenthesis = List.of('{', '[', ']', '}');
         Assertions.assertTrue(StringX.isValidParenthesis(parenthesis));
     }
 
     @Test
     void isValidParenthesis_2() {
-        var parenthesis = List.of('{','[',']','}','(',')','{','{','}','(',')','}');
+        var parenthesis = List.of('{', '[', ']', '}', '(', ')', '{', '{', '}', '(', ')', '}');
         Assertions.assertTrue(StringX.isValidParenthesis(parenthesis));
     }
 
     @Test
     void isValidParenthesis_odd() {
-        var parenthesis = List.of('{','{','[',']','}');
+        var parenthesis = List.of('{', '{', '[', ']', '}');
         Assertions.assertFalse(StringX.isValidParenthesis(parenthesis));
     }
 
     @Test
     void isValidParenthesis_notValidParenthesis() {
-        var parenthesis = List.of('{','{', '}','[',']',']','[','}');
+        var parenthesis = List.of('{', '{', '}', '[', ']', ']', '[', '}');
         Assertions.assertFalse(StringX.isValidParenthesis(parenthesis));
     }
 
@@ -52,7 +52,7 @@ class StringXTest {
 
     @Test
     void isValidParenthesis_notValidParenthesis_one_opening() {
-        var parenthesis = List.of( '}');
+        var parenthesis = List.of('}');
         Assertions.assertFalse(StringX.isValidParenthesis(parenthesis));
     }
 
@@ -72,56 +72,56 @@ class StringXTest {
     void isValidAnagram() {
         String text1 = "aabbccbeef";
         String text2 = "bacabcebef";
-        Assertions.assertTrue(StringX.isValidAnagram(text1,text2));
+        Assertions.assertTrue(StringX.isValidAnagram(text1, text2));
     }
 
     @Test
     void isValidAnagram_length_differ_fail() {
         String text1 = "aabbccbeef";
         String text2 = "bacabcebe";
-        Assertions.assertFalse(StringX.isValidAnagram(text1,text2));
+        Assertions.assertFalse(StringX.isValidAnagram(text1, text2));
     }
 
     @Test
     void isValidAnagram_not_anagram_fail() {
         String text1 = "aabbccbef";
         String text2 = "bacacebef";
-        Assertions.assertFalse(StringX.isValidAnagram(text1,text2));
+        Assertions.assertFalse(StringX.isValidAnagram(text1, text2));
     }
 
     @Test
     void groupAnagrams() {
-        String[] list = new String[]{"eat","tea","tan","ate","nat","bat"};
-        List<List<String>> expectedList = List.of(List.of("tan","nat"), List.of("bat"), List.of("eat", "tea", "ate"));
+        String[] list = new String[]{"eat", "tea", "tan", "ate", "nat", "bat"};
+        List<List<String>> expectedList = List.of(List.of("tan", "nat"), List.of("bat"), List.of("eat", "tea", "ate"));
         Assertions.assertIterableEquals(expectedList, StringX.groupAnagrams(list));
-      }
+    }
 
     @Test
     void isValidAnagramByCounter() {
         String text1 = "aabbccbeef";
         String text2 = "bacabcebef";
-        Assertions.assertTrue(StringX.isValidAnagramByCounter(text1,text2));
+        Assertions.assertTrue(StringX.isValidAnagramByCounter(text1, text2));
     }
 
     @Test
     void isValidAnagramByCounter_not_anagram_fail() {
         String text1 = "aabbccbef";
         String text2 = "bacacebef";
-        Assertions.assertFalse(StringX.isValidAnagramByCounter(text1,text2));
+        Assertions.assertFalse(StringX.isValidAnagramByCounter(text1, text2));
     }
 
     @Test
     void isValidAnagramBySort() {
         String text1 = "aabbccbeef";
         String text2 = "bacabcebef";
-        Assertions.assertTrue(StringX.isValidAnagramBySort(text1,text2));
+        Assertions.assertTrue(StringX.isValidAnagramBySort(text1, text2));
     }
 
     @Test
     void isValidAnagramBySort_not_anagram_fail() {
         String text1 = "aabbccbef";
         String text2 = "bacacebef";
-        Assertions.assertFalse(StringX.isValidAnagramBySort(text1,text2));
+        Assertions.assertFalse(StringX.isValidAnagramBySort(text1, text2));
     }
 
     @Test
@@ -152,13 +152,26 @@ class StringXTest {
     void palindromicSubString_odd() {
         var expected = 7;
         var s = "abacc";
-        Assertions.assertEquals(expected, StringX.palindromicSubString(s));
+        Assertions.assertEquals(expected, StringX.allPalindromicSubString(s));
     }
 
     @Test
     void palindromicSubString_even() {
         var expected = 5;
         var s = "abac";
-        Assertions.assertEquals(expected, StringX.palindromicSubString(s));
+        Assertions.assertEquals(expected, StringX.allPalindromicSubString(s));
+    }
+
+    @Test
+    void longestPalindromicSubString_odd() {
+        var s = "abcbf";
+        var expected = "bcb";
+        Assertions.assertEquals(expected, StringX.longestPalindromicSubString(s));
+    }
+    @Test
+    void longestPalindromicSubString_even() {
+        var s = "abcbff";
+        var expected = "bcb";
+        Assertions.assertEquals(expected, StringX.longestPalindromicSubString(s));
     }
 }

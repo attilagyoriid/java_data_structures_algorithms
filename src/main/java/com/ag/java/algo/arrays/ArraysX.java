@@ -200,7 +200,7 @@ public class ArraysX {
             currentDiff = number - list[i];
             if (map.containsKey(currentDiff)) {
                 result[0] = map.get(currentDiff);
-                result[1] = i;
+                result[1] = i; // current index + index from the map
                 return result;
             }
             map.put(list[i], i);
@@ -225,7 +225,7 @@ public class ArraysX {
                 result.add(l);
 
             }
-            list[l - 1] = -1 * list[l - 1];
+            list[l - 1] = -1 * list[l - 1]; // negate the index representing the number we already found
         }
 
         return result;
@@ -293,13 +293,11 @@ public class ArraysX {
     }
 
     public static int missingNumber2(int[] numbers) {
-        int result = numbers.length;
+        int result = numbers.length; // the biggest value can be missing
         for (int i = 0; i < numbers.length; i++) {
             result += (i - numbers[i]);
         }
-        if (result == 0) {
-            return numbers.length;
-        }
+
         return result;
     }
 

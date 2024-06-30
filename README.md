@@ -56,6 +56,7 @@ This section lists any major frameworks/libraries used to bootstrap project.
 - String
   - Valid Palindrome
   - Palindromic Substrings
+  - Longest Palindromic Substring
   - Is Valid Parenthesis
   - Max character: character with the highest occurrence in a string
   - Longest Substring Without Repeating Characters

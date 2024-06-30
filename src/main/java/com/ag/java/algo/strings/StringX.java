@@ -36,27 +36,28 @@ public class StringX {
     }
 
     /**
-     * Palindromic Substrings
+     * All Palindromic Substrings
      * time O(n2)
      * space O(1)
      *
      * @param s text in which it looks for palindromic substring
      * @return number of palindromic substring
      */
-    public static int palindromicSubString(String s) {
+    public static int allPalindromicSubString(String s) {
         var result = 0;
-
+        char[] charArray = s.toCharArray();
         for (int i = 0; i < s.length(); i++) {
 
             int l = i, r = i; // odd number of characters
-            while (l >= 0 && r < s.length() && s.toCharArray()[l] == s.toCharArray()[r]) {
+
+            while (l >= 0 && r < s.length() && charArray[l] == charArray[r]) {
                 result++;
                 l--;
                 r++;
             }
             l = i;
             r = i + 1; // even number of characters
-            while (l >= 0 && r < s.length() && s.toCharArray()[l] == s.toCharArray()[r]) {
+            while (l >= 0 && r < s.length() && charArray[l] == charArray[r]) {
                 result++;
                 l--;
                 r++;
@@ -67,6 +68,37 @@ public class StringX {
 
         return result;
 
+    }
+
+    public static String longestPalindromicSubString(String s) {
+        char[] charArray = s.toCharArray();
+        String result = "";
+
+        for (int i = 0; i < s.length(); i++) {
+
+            int left = i, right = i; // odd length
+            while (left >= 0 && right < s.length() && Character.toLowerCase(charArray[left]) == Character.toLowerCase(charArray[right])) {
+                if ((right - left + 1) > result.length()) {
+                    result = s.substring(left, right + 1);
+                }
+                left--;
+                right++;
+            }
+
+
+            left = i; // even length
+            right = i + 1;
+            while (left >= 0 && right < s.length() && Character.toLowerCase(charArray[left]) == Character.toLowerCase(charArray[right])) {
+                if ((right - left + 1) > result.length()) {
+                    result = s.substring(left, right + 1);
+                }
+                left--;
+                right++;
+            }
+
+
+        }
+        return result;
     }
 
     public static boolean isValidParenthesis(List<Character> parenthesis) {
