@@ -232,6 +232,26 @@ public class StringX {
         return true;
     }
 
+    public static boolean isValidByArray(String text1, String text2) {
+        if (text1.length() != text2.length()) {
+            return false;
+        }
+        int[] chars = new int[26];
+
+        for (int i=0; i < text1.length(); i++) {
+            chars[text1.charAt(i) - 'a']++;
+            chars[text2.charAt(i) - 'a']--;
+        }
+
+        for (int i: chars) {
+            if (i != 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public static boolean isValidAnagramByMap(String text1, String text2) {
         if (text1.length() != text2.length()) {
             return false;
@@ -242,7 +262,7 @@ public class StringX {
             map.put(c, map.getOrDefault(c, 0) + 1);
         }
         for (char c : text2.toCharArray()) {
-            map.put(c, map.getOrDefault(c, 0) + 1);
+            map.put(c, map.getOrDefault(c, 0) - 1);
         }
 
 

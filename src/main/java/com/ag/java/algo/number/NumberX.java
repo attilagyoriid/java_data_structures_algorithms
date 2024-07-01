@@ -55,7 +55,6 @@ public class NumberX {
         while (number >= 10 * div) {
             div *= 10;
         }
-
         int right;
         while (div > 0) {
             // get right digit

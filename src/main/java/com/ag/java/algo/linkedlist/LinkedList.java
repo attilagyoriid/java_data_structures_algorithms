@@ -159,6 +159,25 @@ public class LinkedList {
         return temp;
     }
 
+    public Node remove2(Node head, int value) {
+        Node dummy = new Node(Integer.MIN_VALUE); // dummy is the previous, the first pointer
+        dummy.setNext(head);
+        Node previous = dummy;
+        Node current = head;
+        while (current != null) {
+            Node next = current.next; // store because it will be overwritten
+            if (current.value == value) { //remove the current node
+                previous.next = next; // not point to current but current.next so we delete the current
+
+            } else { // not remove the current value
+                previous = current;
+            }
+            current = next;
+        }
+
+        return dummy.next;
+    }
+
     public void reverse() {
         Node temp = head;
         head = tail;
@@ -184,6 +203,34 @@ public class LinkedList {
             temp = after;
         }
         return before; //current head
+    }
+
+    public Node reverse2(Node head) { // Time Complexity O(n) Space O(1)
+        Node current = head;
+        Node previous = null;
+        Node tmpNext = null;
+        while (current != null) {
+            // reverse pointers
+            tmpNext = current.next;
+            current.next = previous; // change the direction
+            previous = current; // shift pointers
+            current = tmpNext; //current.next;
+        }
+
+        return previous; //current head
+    }
+
+    public Node reverseRecursive(Node head) { // Time Complexity O(n) Space O(n)
+        if (head == null) { // recursive
+            return null;
+        }
+        Node newHead = head;
+        if (head.next != null) {
+            newHead = reverseRecursive(head.next);
+            head.next.next = head; // reverse the link
+        }
+        head.next = null;
+        return newHead;
     }
 
 
