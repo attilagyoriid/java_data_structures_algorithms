@@ -264,8 +264,6 @@ public class StringX {
         for (char c : text2.toCharArray()) {
             map.put(c, map.getOrDefault(c, 0) - 1);
         }
-
-
         for (int i : map.values()) {
 
             if (i != 0) {
@@ -320,6 +318,7 @@ public class StringX {
      *
      * @param list
      * @return
+     * Naive approach: sort each anagram, all the characters, and sort the list of anagrams O(m * nlogn)
      */
     public static List<List<String>> groupAnagrams(String[] list) { // time complexity O(m * nlogn) if we sort
         // Time Complexity is O (m * n)
@@ -328,12 +327,13 @@ public class StringX {
 
         for (String text : list) {
             Map<Character, Integer> currentMap = new HashMap<>();
+            //collect all characters with its occurrence in a map
             for (char c : text.toCharArray()) {
                 Integer currentCount = currentMap.getOrDefault(c, 0);
                 currentCount += 1;
                 currentMap.put(c, currentCount);
             }
-            if (anagramMap.containsKey(currentMap)) {
+            if (anagramMap.containsKey(currentMap)) { // if already there is an anagram with this map key, we add to it
                 anagramMap.get(currentMap).add(text);
             } else {
                 List<String> newList = new ArrayList<>();
@@ -344,6 +344,21 @@ public class StringX {
 
         return new ArrayList<>(anagramMap.values());
     }
+//    public static List<List<String>> groupAnagrams2(String[] list) { // time complexity O(m * nlogn) if we sort
+//        // Time Complexity is O (m * n)
+//        Map<List<Integer>, List<String>> anagramMap = new HashMap<>();
+//        for (String text: list) {
+//            int[] chars = new int[26];
+//            for (char c: text.toCharArray()) {
+//                chars[c - 'a']++;
+//
+//            }
+//            anagramMap.getOrDefault(chars, new ArrayList<>()).add(text);
+//        }
+//
+//        return new ArrayList<>(anagramMap.values());
+//    }
+
 
     /**
      * Find All Anagrams in a String

@@ -40,12 +40,15 @@ This section lists any major frameworks/libraries used to bootstrap project.
     - Number of notes
     - Best Time to Buy and Sell Stock
     - Two Sum
+    - Contains Duplicates
     - Find Duplicates
     - Missing Number
     - Find All Numbers Disappeared in an Array
     - First Missing Positive
+    - Container with most water
     - Maximum Subarray
     - Merge Intervals
+    - Meeting rooms
     - Non-Overlapping Intervals
 - Stack
   - Valid Parentheses
@@ -79,6 +82,7 @@ This section lists any major frameworks/libraries used to bootstrap project.
   - Depth First Search: in Order
   - Breath First Search: Level Order
   - Maximum Depth
+  - Same tree
 ## Run the demo:
 
 1. Standard Execution:

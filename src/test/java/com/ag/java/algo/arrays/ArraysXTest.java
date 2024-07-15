@@ -268,6 +268,12 @@ class ArraysXTest {
     }
 
     @Test
+    void missingNumber_no_missing_better_space() {
+        Assertions.assertEquals(4, ArraysX.missingNumberBetterSpace(new int[]{2, 0, 1, 3}));
+
+    }
+
+    @Test
     void missingNumber2() {
         Assertions.assertEquals(2, ArraysX.missingNumber2(new int[]{0, 1, 3}));
     }
@@ -304,6 +310,45 @@ class ArraysXTest {
 
         Assertions.assertIterableEquals(expectedIntervals, ArraysX.insertInterval(intervals, newInterval));
 
+    }
+
+    @Test
+    void meetingRooms() {
+        List<List<Integer>> intervals = new ArrayList<>();
+        intervals.add(Arrays.asList(new Integer[] { 1,2 }));
+        intervals.add(Arrays.asList(new Integer[] {2,5 }));
+        intervals.add(Arrays.asList(new Integer[] { 5,7}));
+    }
+
+    @Test
+    void meetingRooms_cant_attend_all() {
+        List<List<Integer>> intervals = new ArrayList<>();
+        intervals.add(Arrays.asList(new Integer[] { 1,2 }));
+        intervals.add(Arrays.asList(new Integer[] {3,5 }));
+        intervals.add(Arrays.asList(new Integer[] { 6,7}));
+        Assertions.assertTrue(ArraysX.meetingRooms(intervals));
+    }
+
+
+    @Test
+    void containsDuplicate() {
+        List<List<Integer>> intervals = new ArrayList<>();
+        intervals.add(Arrays.asList(new Integer[] { 1,2 }));
+        intervals.add(Arrays.asList(new Integer[] {3,5 }));
+        intervals.add(Arrays.asList(new Integer[] { 4,7}));
+        Assertions.assertFalse(ArraysX.meetingRooms(intervals));
+    }
+
+    @Test
+    void containsDuplicate_not_contain() {
+        var list = Arrays.asList(1,2,3,5,4);
+        Assertions.assertFalse(ArraysX.containsDuplicate(list));
+    }
+
+    @Test
+    void containerWithMostWater() {
+        var list = Arrays.asList(1,7,3,5,2,6);
+        Assertions.assertEquals(24,ArraysX.containerWithMostWater(list));
     }
 
 

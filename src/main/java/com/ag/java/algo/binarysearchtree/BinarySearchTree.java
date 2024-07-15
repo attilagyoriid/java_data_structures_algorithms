@@ -81,6 +81,23 @@ public class BinarySearchTree {
         return result;
     }
 
+    public boolean isSameTree(Node rootToCompare) {
+
+        return isSameTree(this.root, rootToCompare);
+
+    }
+    private boolean isSameTree(Node currentRoot, Node rootToCompare) {
+        if (currentRoot == null && rootToCompare == null) {
+            return true;
+        }
+        if ((currentRoot == null || rootToCompare == null) || (currentRoot.getValue() != rootToCompare.getValue())) {
+            return false;
+        }
+        return isSameTree(currentRoot.getLeft(), rootToCompare.getLeft()) && isSameTree(currentRoot.getRight(), rootToCompare.getRight());
+
+    }
+
+
     /**
      * Maximum Depth
      *

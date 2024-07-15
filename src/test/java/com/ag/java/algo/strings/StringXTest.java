@@ -69,6 +69,12 @@ class StringXTest {
     }
 
     @Test
+    void longestSubString_2() {
+        String text = "abccadcefgaa";
+        Assertions.assertEquals(6, StringX.longestSubString(text));
+    }
+
+    @Test
     void isValidAnagram() {
         String text1 = "aabbccbeef";
         String text2 = "bacabcebef";
@@ -102,6 +108,13 @@ class StringXTest {
         List<List<String>> expectedList = List.of(List.of("tan", "nat"), List.of("bat"), List.of("eat", "tea", "ate"));
         Assertions.assertIterableEquals(expectedList, StringX.groupAnagrams(list));
     }
+
+//    @Test
+//    void groupAnagrams2() {
+//        String[] list = new String[]{"eat", "tea", "tan", "ate", "nat", "bat"};
+//        List<List<String>> expectedList = List.of(List.of("tan", "nat"), List.of("bat"), List.of("eat", "tea", "ate"));
+//        Assertions.assertIterableEquals(expectedList, StringX.groupAnagrams2(list));
+//    }
 
     @Test
     void isValidAnagramByCounter() {
